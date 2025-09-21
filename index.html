@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Mentor - Formation aux compétences technologiques et IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f0e17;
+            color: #fffffe;
+        }
+        .neon-text {
+            text-shadow: 0 0 10px #7f5af0, 0 0 20px #7f5af0;
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, #7f5af0, #2cb67d);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(127, 90, 240, 0.3);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px rgba(127, 90, 240, 0.2);
+        }
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(180deg, rgba(15,14,23,0) 0%, rgba(127,90,240,0.2) 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Countdown Banner -->
+    <div class="bg-gradient-to-r from-[#7f5af0] to-[#2cb67d] text-white py-3 px-4 text-center">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-4">
+            <div class="flex items-center">
+                <i data-feather="clock" class="w-5 h-5 mr-2"></i>
+                <span class="font-bold">OFFRE SPÉCIALE :</span>
+            </div>
+            <div class="flex items-center">
+                <span class="text-sm md:text-base">Termine ton inscription dans </span>
+                <div id="countdown" class="flex items-center space-x-1 md:space-x-2 ml-2 font-mono">
+                    <div class="bg-black bg-opacity-20 px-2 py-1 rounded">
+                        <span id="hours" class="text-xl font-bold">48</span>
+                        <span class="text-xs">H</span>
+                    </div>
+                    <span>:</span>
+                    <div class="bg-black bg-opacity-20 px-2 py-1 rounded">
+                        <span id="minutes" class="text-xl font-bold">00</span>
+                        <span class="text-xs">M</span>
+                    </div>
+                    <span>:</span>
+                    <div class="bg-black bg-opacity-20 px-2 py-1 rounded">
+                        <span id="seconds" class="text-xl font-bold">00</span>
+                        <span class="text-xs">S</span>
+                    </div>
+                </div>
+                <span class="ml-2 text-sm md:text-base">et obtiens <span class="font-bold">30% de réduction</span> sur ta formation !</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Hero Section -->
+    <div class="relative overflow-hidden bg-gradient-to-b from-[#0f0e17] to-[#1a1a2e] py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 neon-text" data-aos="fade-up">
+                Tu as ta place dans le futur digital.<br>
+                Digital Mentor t'y conduit <span class="text-5xl">🚀</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-gray-300" data-aos="fade-up" data-aos-delay="100">
+                Nous formons, mentorons et accompagnons les jeunes africains pour transformer leurs idées en compétences réelles et leurs compétences en opportunités concrètes.
+            </p>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <a href="#formations" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg inline-block">
+                    Je prends ma place maintenant
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section with Problems/Solutions -->
+    <div id="hero" class="relative overflow-hidden bg-gradient-to-b from-[#0f0e17] to-[#1a1a2e]">
+        <div class="absolute inset-0 z-0" id="vanta-bg"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Column - Problems -->
+                <div class="bg-[#16142a] bg-opacity-80 backdrop-blur-sm p-8 rounded-xl border border-red-500/30" data-aos="fade-right">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-red-500/20 p-2 rounded-lg mr-4">
+                            <i data-feather="alert-triangle" class="w-8 h-8 text-red-500"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-red-400">Les problèmes que tu connais trop bien...</h2>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-red-500 font-bold text-xl mr-3">✗</span>
+                            <div>
+                                <h3 class="font-bold text-white">Formations en ligne inefficaces</h3>
+                                <p class="text-gray-300">Tu as acheté des formations qui promettaient monts et merveilles, mais tu n'as rien appris de concret.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 font-bold text-xl mr-3">✗</span>
+                            <div>
+                                <h3 class="font-bold text-white">Temps perdu sur les réseaux</h3>
+                                <p class="text-gray-300">Tu passes des heures à scroller sans rien apprendre d'utile pour ton avenir.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 font-bold text-xl mr-3">✗</span>
+                            <div>
+                                <h3 class="font-bold text-white">Mentors inaccessibles</h3>
+                                <p class="text-gray-300">Personne pour te guider vraiment ou répondre à tes questions spécifiques.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 font-bold text-xl mr-3">✗</span>
+                            <div>
+                                <h3 class="font-bold text-white">Promesses vides</h3>
+                                <p class="text-gray-300">Des méthodes miracles qui ne marchent pas dans la réalité africaine.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right Column - Solutions -->
+                <div class="bg-[#16142a] bg-opacity-80 backdrop-blur-sm p-8 rounded-xl border border-green-500/30" data-aos="fade-left" data-aos-delay="200">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-500/20 p-2 rounded-lg mr-4">
+                            <i data-feather="award" class="w-8 h-8 text-green-400"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-green-400">La solution Digital Mentor</h2>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-green-500 font-bold text-xl mr-3">✓</span>
+                            <div>
+                                <h3 class="font-bold text-white">Formations pratiques et concrètes</h3>
+                                <p class="text-gray-300">Pas de théorie inutile, seulement ce qui marche vraiment sur le terrain.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 font-bold text-xl mr-3">✓</span>
+                            <div>
+                                <h3 class="font-bold text-white">Mentorat personnalisé</h3>
+                                <p class="text-gray-300">Des experts disponibles pour te guider pas à pas vers la réussite.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 font-bold text-xl mr-3">✓</span>
+                            <div>
+                                <h3 class="font-bold text-white">Communauté active</h3>
+                                <p class="text-gray-300">Rejoins des milliers de jeunes qui construisent leur avenir comme toi.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 font-bold text-xl mr-3">✓</span>
+                            <div>
+                                <h3 class="font-bold text-white">Résultats garantis</h3>
+                                <p class="text-gray-300">Notre engagement : ta réussite ou ton argent remboursé.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt-8 text-center">
+                        <h3 class="text-2xl font-bold text-white mb-4">Prêt à transformer ta vie ?</h3>
+                        <a href="#contact" class="inline-block bg-gradient-to-r from-[#7f5af0] to-[#2cb67d] hover:from-[#6f4ad6] hover:to-[#25a56a] text-white font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105">
+                            Je commence ma transformation <i data-feather="arrow-right" class="inline-block ml-2 w-5 h-5"></i>
+                        </a>
+                        <p class="text-sm text-gray-400 mt-3">Rejoins les 5,000+ jeunes qui ont déjà pris leur avenir en main</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="mt-16 text-center" data-aos="fade-up">
+                <p class="text-gray-400 mb-6 uppercase text-sm tracking-wider">Ils nous font confiance</p>
+                <div class="flex flex-wrap justify-center items-center gap-8 opacity-80">
+                    <div class="bg-white/5 backdrop-blur-sm p-4 rounded-lg">
+                        <i data-feather="users" class="w-8 h-8 text-purple-400 mx-auto mb-2"></i>
+                        <p class="text-2xl font-bold text-white">5,000+</p>
+                        <p class="text-sm text-gray-400">Étudiants formés</p>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-sm p-4 rounded-lg">
+                        <i data-feather="award" class="w-8 h-8 text-green-400 mx-auto mb-2"></i>
+                        <p class="text-2xl font-bold text-white">98%</p>
+                        <p class="text-sm text-gray-400">Satisfaction</p>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-sm p-4 rounded-lg">
+                        <i data-feather="briefcase" class="w-8 h-8 text-blue-400 mx-auto mb-2"></i>
+                        <p class="text-2xl font-bold text-white">2,500+</p>
+                        <p class="text-sm text-gray-400">Projets réalisés</p>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-sm p-4 rounded-lg">
+                        <i data-feather="globe" class="w-8 h-8 text-yellow-400 mx-auto mb-2"></i>
+                        <p class="text-2xl font-bold text-white">15+</p>
+                        <p class="text-sm text-gray-400">Pays représentés</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Us Section -->
+    <div class="py-20 bg-gradient-to-b from-[#0f0e17] to-[#16142a]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Pourquoi choisir Digital Mentor ?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-[#16142a] p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl mb-4 text-[#7f5af0]">
+                        <i data-feather="target"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Pédagogie pratique</h3>
+                    <p class="text-gray-300">Apprendre en faisant, pas seulement en écoutant. Des projets concrets pour maîtriser rapidement.</p>
+                </div>
+                
+                <div class="bg-[#16142a] p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl mb-4 text-[#7f5af0]">
+                        <i data-feather="user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Mentoring personnalisé</h3>
+                    <p class="text-gray-300">Un accompagnement humain et motivant avec des experts qui croient en votre potentiel.</p>
+                </div>
+                
+                <div class="bg-[#16142a] p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl mb-4 text-[#7f5af0]">
+                        <i data-feather="users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Communauté active</h3>
+                    <p class="text-gray-300">Avancer ensemble et ne jamais rester seul. Une communauté soudée pour votre réussite.</p>
+                </div>
+                
+                <div class="bg-[#16142a] p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-4xl mb-4 text-[#7f5af0]">
+                        <i data-feather="dollar-sign"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Opportunités business</h3>
+                    <p class="text-gray-300">Transformer les compétences en revenus. Accès à des opportunités concrètes de monétisation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Formations Section -->
+    <div id="formations" class="py-20 bg-[#16142a]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Nos formations & offres</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Formation 1 -->
+                <div class="bg-[#0f0e17] p-8 rounded-xl border border-[#7f5af0] card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl mb-4 text-[#7f5af0]">
+                        <i data-feather="cpu"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Formation IA pour débutants</h3>
+                    <p class="text-gray-300 mb-4">Maîtrisez ChatGPT, automatisez vos tâches et gagnez du temps au quotidien.</p>
+                    <a href="#" class="btn-primary text-white font-bold py-3 px-6 rounded-full text-sm inline-block">
+                        Je m'inscris à cette formation
+                    </a>
+                </div>
+                
+                <!-- Formation 2 -->
+                <div class="bg-[#0f0e17] p-8 rounded-xl border border-[#7f5af0] card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl mb-4 text-[#7f5af0]">
+                        <i data-feather="image"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Design & Création avec IA</h3>
+                    <p class="text-gray-300 mb-4">Canva, MidJourney, Runway : créez des images, pubs et vidéos professionnelles.</p>
+                    <a href="#" class="btn-primary text-white font-bold py-3 px-6 rounded-full text-sm inline-block">
+                        Je m'inscris à cette formation
+                    </a>
+                </div>
+                
+                <!-- Formation 3 -->
+                <div class="bg-[#0f0e17] p-8 rounded-xl border border-[#7f5af0] card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl mb-4 text-[#7f5af0]">
+                        <i data-feather="code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Programmation assistée par IA</h3>
+                    <p class="text-gray-300 mb-4">Python, GitHub Copilot : créez des applications rapidement avec l'aide de l'IA.</p>
+                    <a href="#" class="btn-primary text-white font-bold py-3 px-6 rounded-full text-sm inline-block">
+                        Je m'inscris à cette formation
+                    </a>
+                </div>
+                
+                <!-- Formation 4 -->
+                <div class="bg-[#0f0e17] p-8 rounded-xl border border-[#7f5af0] card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl mb-4 text-[#7f5af0]">
+                        <i data-feather="trending-up"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Business & Monétisation</h3>
+                    <p class="text-gray-300 mb-4">Freelancing, marketing, automatisation e-commerce : générez des revenus.</p>
+                    <a href="#" class="btn-primary text-white font-bold py-3 px-6 rounded-full text-sm inline-block">
+                        Je m'inscris à cette formation
+                    </a>
+                </div>
+                
+                <!-- Formation 5 -->
+                <div class="bg-[#0f0e17] p-8 rounded-xl border border-[#7f5af0] card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl mb-4 text-[#7f5af0]">
+                        <i data-feather="award"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Mentorat premium</h3>
+                    <p class="text-gray-300 mb-4">Accompagnement individuel intensif avec un expert pour votre projet spécifique.</p>
+                    <a href="#" class="btn-primary text-white font-bold py-3 px-6 rounded-full text-sm inline-block">
+                        Je m'inscris à cette formation
+                    </a>
+                </div>
+                
+                <!-- Formation 6 -->
+                <div class="bg-[#0f0e17] p-8 rounded-xl border border-[#7f5af0] card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl mb-4 text-[#7f5af0]">
+                        <i data-feather="zap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Bootcamps intensifs</h3>
+                    <p class="text-gray-300 mb-4">7 jours pour maîtriser un domaine spécifique avec des projets concrets.</p>
+                    <a href="#" class="btn-primary text-white font-bold py-3 px-6 rounded-full text-sm inline-block">
+                        Je m'inscris à cette formation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pour qui est fait Digital Mentor ? -->
+    <div class="py-20 bg-[#0f0e17]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 neon-text" data-aos="fade-up">Pour qui est fait <span class="text-[#7f5af0]">Digital Mentor</span> ?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Profil 1 -->
+                <div class="bg-[#16142a] rounded-xl overflow-hidden border border-[#7f5af0] transform transition-all duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-gradient-to-r from-purple-900 to-blue-900 p-6 text-center">
+                        <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="user" class="w-10 h-10 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Le Débutant Absolu</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-300 mb-4">Tu passes tes journées sur ton téléphone à scroller sans but, sans compétences techniques, et tu sens que tu gâches ton potentiel ?</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <i data-feather="check" class="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0"></i>
+                                <span>Tu ne connais rien au digital mais tu veux changer ta vie</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0"></i>
+                                <span>Tu veux transformer ton temps d'écran en opportunités</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0"></i>
+                                <span>Tu cherches un nouveau départ dans le numérique</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class=" btn-primary block text-center bg-[#7f5af0] hover:bg-[#6f4ad6] text-white font-bold py-3 px-6 rounded-full transition">Je veux changer ma vie</a>
+                    </div>
+                </div>
+
+                <!-- Profil 2 -->
+                <div class="bg-[#16142a] rounded-xl overflow-hidden border border-[#7f5af0] transform transition-all duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-gradient-to-r from-blue-900 to-purple-900 p-6 text-center">
+                        <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="book" class="w-10 h-10 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">L'Étudiant Ambitieux</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-300 mb-4">Tu es étudiant ou jeune diplômé et tu veux acquérir des compétences concrètes pour devenir indépendant financièrement ?</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <i data-feather="check" class="w-5 h-5 text-blue-400 mr-2 mt-0.5 flex-shrink-0"></i>
+                                <span>Tu veux compléter ta formation académique</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="w-5 h-5 text-blue-400 mr-2 mt-0.5 flex-shrink-0"></i>
+                                <span>Tu cherches à gagner en autonomie financière</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="w-5 h-5 text-blue-400 mr-2 mt-0.5 flex-shrink-0"></i>
+                                <span>Tu veux te démarquer sur le marché du travail</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="btn-primary block text-center bg-[#7f5af0] hover:bg-[#6f4ad6] text-white font-bold py-3 px-6 rounded-full transition">Je veux booster mon avenir</a>
+                    </div>
+                </div>
+
+                <!-- Profil 3 -->
+                <div class="bg-[#16142a] rounded-xl overflow-hidden border border-[#7f5af0] transform transition-all duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-gradient-to-r from-purple-900 to-pink-700 p-6 text-center">
+                        <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="briefcase" class="w-10 h-10 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Le Passionné en Quête de Succès</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-300 mb-4">Tu as des compétences mais tu n'arrives pas à les monétiser ou à te faire connaître ?</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <i data-feather="check" class="w-5 h-5 text-pink-400 mr-2 mt-0.5 flex-shrink-0"></i>
+                                <span>Tu maîtrises déjà des outils mais tu ne gagnes pas assez</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="w-5 h-5 text-pink-400 mr-2 mt-0.5 flex-shrink-0"></i>
+                                <span>Tu veux transformer ta passion en revenus stables</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="w-5 h-5 text-pink-400 mr-2 mt-0.5 flex-shrink-0"></i>
+                                <span>Tu cherches à professionnaliser ton activité en ligne</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="btn-primary block text-center bg-[#7f5af0] hover:bg-[#6f4ad6] text-white font-bold py-3 px-6 rounded-full transition">Je veux percer en ligne</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Domains Section -->
+    <div class="py-20 bg-gradient-to-b from-[#16142a] to-[#0f0e17]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Domaines couverts</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-[#7f5af0] bg-opacity-20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="cpu" class="text-3xl text-[#7f5af0]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">IA & Automatisation</h3>
+                    <p class="text-gray-300">Maîtrisez les outils d'intelligence artificielle pour automatiser vos tâches.</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-[#7f5af0] bg-opacity-20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="image" class="text-3xl text-[#7f5af0]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Design & Création</h3>
+                    <p class="text-gray-300">Créez des contenus visuels percutants avec l'aide de l'IA.</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-[#7f5af0] bg-opacity-20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="code" class="text-3xl text-[#7f5af0]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Programmation</h3>
+                    <p class="text-gray-300">Développez des applications et sites web avec des outils assistés par IA.</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-[#7f5af0] bg-opacity-20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="trending-up" class="text-3xl text-[#7f5af0]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Business & Marketing</h3>
+                    <p class="text-gray-300">Transformez vos compétences en revenus avec des stratégies digitales.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="py-20 bg-[#0f0e17]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Ils ont transformé leur futur</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-[#16142a] p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <img src="image/amina.jpg" alt="Amina" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Amina D.</h4>
+                            <p class="text-sm text-gray-400">Designer IA</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Grâce à Digital Mentor, j'ai pu créer mon agence de design en 3 mois seulement. Les outils IA m'ont permis de multiplier ma productivité par 10!"</p>
+                </div>
+                
+                <div class="bg-[#16142a] p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <img src="image/koffi.jpg" alt="Koffi" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Koffi A.</h4>
+                            <p class="text-sm text-gray-400">Développeur Fullstack</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Le mentorat personnalisé m'a aidé à décrocher mon premier contrat international. Aujourd'hui je travaille pour des clients aux USA depuis Abidjan."</p>
+                </div>
+                
+                <div class="bg-[#16142a] p-8 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <img src="image/fatou.jpeg" alt="Fatou" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Fatou S.</h4>
+                            <p class="text-sm text-gray-400">Entrepreneure</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Le bootcamp Business & Marketing a révolutionné ma façon de voir le digital. J'ai triplé le chiffre d'affaires de mon e-commerce en 2 mois!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final CTA Section -->
+    <div class="py-20 bg-gradient-to-b from-[#0f0e17] to-[#7f5af0]">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">
+                Le futur ne se construira pas sans toi.<br>
+                Tu as ta place dans la révolution digitale.
+            </h2>
+            <p class="text-xl mb-10">
+                Rejoins Digital Mentor aujourd'hui et commence à bâtir ton avenir.
+            </p>
+            
+            <form class="max-w-md mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <input type="text" placeholder="Nom complet" class="bg-white bg-opacity-10 border border-white border-opacity-20 rounded-full py-3 px-3 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white">
+                    <input type="email" placeholder="Email" class="bg-white bg-opacity-10 border border-white border-opacity-20 rounded-full py-3 px-6 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white">
+                    <input type="tel" placeholder="Téléphone" class="bg-white bg-opacity-10 border border-white border-opacity-20 rounded-full py-3 px-6 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white">
+                </div>
+                <button type="submit" class="bg-white text-[#7f5af0] font-bold py-4 px-12 rounded-full text-lg inline-block hover:bg-opacity-90 transition">
+                    Oui, je rejoins Digital Mentor maintenant !
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#0f0e17] py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold">Digital Mentor</h2>
+                    <p class="text-gray-400 mt-2">Former. Mentorer. Transformer.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="facebook"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Digital Mentor. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Mentions légales</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Politique de confidentialité</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize Vanta.js background
+        VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x7f5af0,
+            backgroundColor: 0x0f0e17,
+            size: 1.20
+        });
+
+        // 48h Countdown Timer with localStorage
+        function updateCountdown() {
+            const now = new Date();
+            let targetDate;
+            
+            // Vérifier si une date cible existe déjà dans le stockage local
+            const storedTargetDate = localStorage.getItem('countdownTargetDate');
+            
+            if (storedTargetDate) {
+                targetDate = new Date(parseInt(storedTargetDate));
+                
+                // Vérifier si le compte à rebours est déjà terminé
+                if (now > targetDate) {
+                    showExpiredMessage();
+                    return;
+                }
+            } else {
+                // Créer une nouvelle date cible (48h à partir de maintenant)
+                targetDate = new Date(now);
+                targetDate.setHours(now.getHours() + 48);
+                // Stocker la date cible
+                localStorage.setItem('countdownTargetDate', targetDate.getTime().toString());
+            }
+            
+            // Calculer le temps restant
+            const difference = targetDate - now;
+            
+            // Calculer les heures, minutes, secondes restantes
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            
+            // Mettre à jour l'affichage
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            
+            // Changer le style quand il reste moins d'une heure
+            const countdownElement = document.getElementById('countdown');
+            if (hours <= 6) {
+                countdownElement.classList.add('animate-pulse');
+                countdownElement.classList.add('text-yellow-300');
+                
+                // Faire clignoter en rouge les 30 dernières minutes
+                if (hours === 0 && minutes <= 30) {
+                    countdownElement.classList.add('text-red-400');
+                    countdownElement.classList.remove('text-yellow-300');
+                }
+            }
+            
+            // Si le compte à rebours est terminé
+            if (difference <= 0) {
+                showExpiredMessage();
+            }
+        }
+        
+        function showExpiredMessage() {
+            clearInterval(countdownInterval);
+            document.getElementById('countdown').innerHTML = 
+                '<span class="text-red-300 font-bold">L\'offre a expiré !</span>';
+        }
+        
+        // Démarrer le compte à rebours
+        let countdownInterval;
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCountdown();
+            countdownInterval = setInterval(updateCountdown, 1000);
+        });
+
+        // Replace icons
+        feather.replace();
+
+        // WhatsApp popup after 1 minute
+        setTimeout(function() {
+            const popup = document.createElement('div');
+            popup.className = 'fixed bottom-4 right-4 bg-green-600 text-white p-4 rounded-lg shadow-xl max-w-xs z-50 animate-bounce';
+            popup.innerHTML = `
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 pt-1">
+                        <i data-feather="message-circle" class="w-6 h-6"></i>
+                    </div>
+                    <div class="ml-3">
+                        <h3 class="font-bold">Rejoins notre communauté WhatsApp</h3>
+                        <p class="text-sm mt-1">Pour ne rien rater des opportunités tech !</p>
+                        <a href="#" class="inline-block mt-2 bg-white text-green-600 px-3 py-1 rounded text-sm font-bold">Je rejoins</a>
+                    </div>
+                    <button onclick="this.parentNode.remove()" class="ml-2 text-white hover:text-gray-200">
+                        <i data-feather="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(popup);
+            feather.replace();
+        }, 60000);
+    </script>
+</body>
+</html>

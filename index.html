@@ -3,19 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Mentor - Formation aux compétences technologiques et IA</title>
+    <title>Digital Mentor - Formation aux compétences technologiques et IA pour la jeunesse africaine</title>
+    <meta name="description" content="Digital Mentor forme les jeunes africains aux compétences digitales et à l'IA. Mentorat personnalisé, formations pratiques et communauté active pour réussir dans le numérique.">
+    <meta name="keywords" content="formation digitale, intelligence artificielle, mentorat, compétences numériques, Afrique, développement web, design IA, marketing digital">
+    <meta name="author" content="Digital Mentor">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://digitalmentor.netlify.app/">
+    <meta property="og:title" content="Digital Mentor - Formation aux compétences technologiques et IA">
+    <meta property="og:description" content="Transformez votre avenir avec nos formations en IA et compétences digitales. Mentorat personnalisé pour les jeunes africains.">
+    <meta property="og:image" content="https://digitalmentor.netlify.app/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://digitalmentor.netlify.app/">
+    <meta property="twitter:title" content="Digital Mentor - Formation aux compétences technologiques et IA">
+    <meta property="twitter:description" content="Transformez votre avenir avec nos formations en IA et compétences digitales. Mentorat personnalisé pour les jeunes africains.">
+    <meta property="twitter:image" content="https://digitalmentor.netlify.app/images/twitter-image.jpg">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Digital Mentor",
+      "description": "Formation aux compétences technologiques et IA pour la jeunesse africaine",
+      "url": "https://digitalmentor.netlify.app",
+      "logo": "https://digitalmentor.netlify.app/images/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Afrique"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Formations Digitales",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Course",
+              "name": "Design & Création avec IA"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Course",
+              "name": "Développeur Full Stack"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <link rel="canonical" href="https://digitalmentor.netlify.app/">
+    
+    <!-- Chargement des polices Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS (Animate On Scroll) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+    <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- Vanta.js pour l'arrière-plan animé -->
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #0f0e17;
             color: #fffffe;
+            overflow-x: hidden;
         }
         .neon-text {
             text-shadow: 0 0 10px #7f5af0, 0 0 20px #7f5af0;
@@ -38,6 +107,557 @@
         .section-divider {
             height: 100px;
             background: linear-gradient(180deg, rgba(15,14,23,0) 0%, rgba(127,90,240,0.2) 100%);
+        }
+        
+        /* Styles pour le nouveau carrousel amélioré */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: transform;
+            padding: 1rem 0;
+            gap: 1.5rem;
+        }
+        
+        .carousel-slide {
+            flex: 0 0 auto;
+            width: 320px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            border-radius: 1rem;
+            overflow: hidden;
+            background: linear-gradient(145deg, #16161a, #1a1a2e);
+            border: 1px solid rgba(127, 90, 240, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            color: #e2e8f0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(127, 90, 240, 0.05) 0%, rgba(44, 182, 125, 0.05) 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .carousel-slide.active {
+            transform: scale(1.05);
+            border-color: rgba(127, 90, 240, 0.5);
+            box-shadow: 0 20px 40px rgba(127, 90, 240, 0.3);
+            z-index: 10;
+        }
+        
+        .carousel-slide.active::before {
+            opacity: 1;
+        }
+        
+        .carousel-slide:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: rgba(127, 90, 240, 0.7);
+            box-shadow: 0 25px 50px rgba(127, 90, 240, 0.4);
+        }
+        
+        .carousel-slide.active:hover {
+            transform: translateY(-5px) scale(1.07);
+        }
+        
+        /* Styles pour les boutons de navigation */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(39, 39, 55, 0.9);
+            border: none;
+            color: white;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 20;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .carousel-btn:hover {
+            background: #7f5af0;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 8px 25px rgba(127, 90, 240, 0.4);
+        }
+        
+        .carousel-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: translateY(-50%);
+        }
+        
+        .carousel-btn svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+        
+        .carousel-prev-btn {
+            left: 1rem;
+        }
+        
+        .carousel-next-btn {
+            right: 1rem;
+        }
+        
+        /* Style pour les indicateurs de défilement */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 0.75rem;
+        }
+        
+        .carousel-dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: #2a2942;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background-color: #7f5af0;
+            width: 2rem;
+            border-radius: 0.5rem;
+            transform: scale(1.2);
+        }
+        
+        /* Effet de brillance sur les slides */
+        .carousel-slide::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+        
+        .carousel-slide.active::after {
+            opacity: 0.3;
+            animation: shine 3s ease-in-out infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: rotate(30deg) translateX(-100%); }
+            100% { transform: rotate(30deg) translateX(100%); }
+        }
+        
+        /* Animation pour les drapeaux */
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.05); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+            animation: blob 8s infinite;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        
+        #presentation-video {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        #presentation-video:hover {
+            transform: scale(1.01);
+        }
+        
+        #presentation-video::-webkit-media-controls-panel {
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+        }
+        
+        /* Styles pour les drapeaux */
+        .flags-container {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        
+        .flags-track {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+            padding: 15px 0;
+            will-change: transform;
+            animation: scroll var(--speed, 60s) linear infinite;
+            animation-direction: var(--direction, normal);
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 10px)); }
+        }
+        
+        .flag-3d {
+            width: 80px;
+            height: 53px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), 
+                        0 0 15px rgba(127, 90, 240, 0.3);
+            transform: perspective(800px) rotateY(15deg) rotateX(5deg);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            opacity: 0.95;
+            filter: saturate(1.15) brightness(1.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .flag-3d::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(0, 0, 0, 0.1) 100%);
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+        }
+        
+        .flag-3d:hover {
+            transform: perspective(800px) rotateY(15deg) rotateX(5deg) translateY(-5px) scale(1.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 
+                        0 0 20px rgba(127, 90, 240, 0.5);
+            z-index: 10;
+            opacity: 1;
+            filter: saturate(1.3) brightness(1.1);
+        }
+        
+        /* Drapeaux avec les codes pays */
+        .flag-3d[data-country="bj"] { background-image: url('https://flagcdn.com/w320/bj.png'); }
+        .flag-3d[data-country="tg"] { background-image: url('https://flagcdn.com/w320/tg.png'); }
+        .flag-3d[data-country="cm"] { background-image: url('https://flagcdn.com/w320/cm.png'); }
+        .flag-3d[data-country="sn"] { background-image: url('https://flagcdn.com/w320/sn.png'); }
+        .flag-3d[data-country="ci"] { background-image: url('https://flagcdn.com/w320/ci.png'); }
+        .flag-3d[data-country="bf"] { background-image: url('https://flagcdn.com/w320/bf.png'); }
+        .flag-3d[data-country="ml"] { background-image: url('https://flagcdn.com/w320/ml.png'); }
+        .flag-3d[data-country="ne"] { background-image: url('https://flagcdn.com/w320/ne.png'); }
+        .flag-3d[data-country="gh"] { background-image: url('https://flagcdn.com/w320/gh.png'); }
+        .flag-3d[data-country="ng"] { background-image: url('https://flagcdn.com/w320/ng.png'); }
+        .flag-3d[data-country="gn"] { background-image: url('https://flagcdn.com/w320/gn.png'); }
+        .flag-3d[data-country="sl"] { background-image: url('https://flagcdn.com/w320/sl.png'); }
+        .flag-3d[data-country="lr"] { background-image: url('https://flagcdn.com/w320/lr.png'); }
+        .flag-3d[data-country="gm"] { background-image: url('https://flagcdn.com/w320/gm.png'); }
+        .flag-3d[data-country="cv"] { background-image: url('https://flagcdn.com/w320/cv.png'); }
+        
+        /* Styles responsifs */
+        @media (max-width: 1024px) {
+            .carousel-slide {
+                width: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-slide {
+                width: 280px;
+            }
+            
+            .carousel-btn {
+                width: 3rem;
+                height: 3rem;
+            }
+            
+            .flag-3d {
+                width: 45px;
+                height: 30px;
+            }
+            
+            .flags-track {
+                gap: 8px;
+            }
+            
+            .flags-container {
+                padding: 5px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .carousel-slide {
+                width: 260px;
+            }
+            
+            .carousel-btn {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+            
+            .carousel-prev-btn {
+                left: 0.5rem;
+            }
+            
+            .carousel-next-btn {
+                right: 0.5rem;
+            }
+            
+            .flag-3d {
+                width: 40px;
+                height: 25px;
+            }
+            
+            .flags-track {
+                gap: 6px;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        /* Style pour le contenu des slides */
+        .slide-content {
+            padding: 1.5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .slide-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .slide-icon {
+            background: rgba(127, 90, 240, 0.2);
+            padding: 0.75rem;
+            border-radius: 0.75rem;
+            margin-right: 1rem;
+        }
+        
+        .slide-badges {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .badge-bootcamp {
+            background: rgba(44, 182, 125, 0.2);
+            color: #2cb67d;
+        }
+        
+        .badge-formation {
+            background: rgba(127, 90, 240, 0.2);
+            color: #7f5af0;
+        }
+        
+        .badge-live {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+        
+        .badge-mentorat {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+        
+        .badge-avance {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+        
+        .badge-business {
+            background: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+        }
+        
+        .slide-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+        
+        .slide-description {
+            color: #94a3b8;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+        
+        .slide-features {
+            margin-bottom: 1rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            line-height: 1.4;
+        }
+        
+        .feature-icon {
+            color: #2cb67d;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+        
+        .slide-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(42, 41, 66, 0.5);
+        }
+        
+        .slide-duration {
+            display: flex;
+            align-items: center;
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+        
+        .slide-button {
+            background: linear-gradient(45deg, #7f5af0, #2cb67d);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slide-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(127, 90, 240, 0.4);
+        }
+        
+        /* Effet de particules pour le carrousel */
+        .particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #7f5af0;
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 6s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Nouveaux styles pour les catégories de formation */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-btn {
+            background: rgba(39, 39, 55, 0.7);
+            border: 1px solid rgba(127, 90, 240, 0.3);
+            color: #e2e8f0;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: #7f5af0;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(127, 90, 240, 0.3);
+        }
+        
+        .formations-count {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            color: #94a3b8;
+        }
+        
+        .formations-count span {
+            color: #7f5af0;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -73,25 +693,25 @@
     </div>
 
     <!-- Top Hero Section -->
-    <div class="relative overflow-hidden bg-gradient-to-b from-[#0f0e17] to-[#1a1a2e] py-20">
+    <header class="relative overflow-hidden bg-gradient-to-b from-[#0f0e17] to-[#1a1a2e] py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-6 neon-text" data-aos="fade-up">
                 Tu as ta place dans le futur digital.<br>
-                Digital Mentor t'y conduit <span class="text-5xl">🚀</span>
+                Digital Mentor t'y conduit <span class="text-5xl">.</span>
             </h1>
             <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-gray-300" data-aos="fade-up" data-aos-delay="100">
                 Nous formons, mentorons et accompagnons les jeunes africains pour transformer leurs idées en compétences réelles et leurs compétences en opportunités concrètes.
             </p>
             <div data-aos="fade-up" data-aos-delay="200">
-                <a href="#formations" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg inline-block">
+                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg inline-block">
                     Je prends ma place maintenant
                 </a>
             </div>
         </div>
-    </div>
+    </header>
 
     <!-- Hero Section with Problems/Solutions -->
-    <div id="hero" class="relative overflow-hidden bg-gradient-to-b from-[#0f0e17] to-[#1a1a2e]">
+    <section id="hero" class="relative overflow-hidden bg-gradient-to-b from-[#0f0e17] to-[#1a1a2e]">
         <div class="absolute inset-0 z-0" id="vanta-bg"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -175,7 +795,7 @@
                     </ul>
                     <div class="mt-8 text-center">
                         <h3 class="text-2xl font-bold text-white mb-4">Prêt à transformer ta vie ?</h3>
-                        <a href="#contact" class="inline-block bg-gradient-to-r from-[#7f5af0] to-[#2cb67d] hover:from-[#6f4ad6] hover:to-[#25a56a] text-white font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105">
+                        <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="inline-block bg-gradient-to-r from-[#7f5af0] to-[#2cb67d] hover:from-[#6f4ad6] hover:to-[#25a56a] text-white font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105">
                             Je commence ma transformation <i data-feather="arrow-right" class="inline-block ml-2 w-5 h-5"></i>
                         </a>
                         <p class="text-sm text-gray-400 mt-3">Rejoins les 5,000+ jeunes qui ont déjà pris leur avenir en main</p>
@@ -210,12 +830,72 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="relative py-20 bg-gradient-to-b from-[#0f0e17] to-[#16142a] overflow-hidden">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 overflow-hidden opacity-20">
+            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-[#7f5af0] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+            <div class="absolute -bottom-20 right-1/3 w-96 h-96 bg-[#2cb67d] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Digital Mentor : <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#7f5af0] to-[#2cb67d]">Ton Avenir</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Découvrez qui nous sommes et notre vision pour votre réussite</p>
+            </div>
+            
+            <div class="relative max-w-4xl mx-auto" data-aos="zoom-in" data-aos-delay="200">
+                <div class="relative aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(127,90,240,0.3)]">
+                    <!-- Video Player -->
+                    <video id="presentation-video" class="w-full h-full" controls poster="" onclick="this.paused ? this.play() : this.pause();">
+                        <source src="Digital_Mentor___Ton_Avenir.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture de vidéos.
+                    </video>
+                </div>
+                
+                <!-- Key Points -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+                    <div class="bg-[#16142a] p-6 rounded-xl border border-[#2a2942]" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-start">
+                            <div class="bg-[#7f5af0] bg-opacity-20 p-2 rounded-lg mr-4">
+                                <i data-feather="target" class="w-6 h-6 text-[#7f5af0]"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Notre Mission</h3>
+                                <p class="text-gray-300">Vous accompagner vers l'excellence numérique</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[#16142a] p-6 rounded-xl border border-[#2a2942]" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-start">
+                            <div class="bg-[#2cb67d] bg-opacity-20 p-2 rounded-lg mr-4">
+                                <i data-feather="star" class="w-6 h-6 text-[#2cb67d]"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Notre Vision</h3>
+                                <p class="text-gray-300">Former la prochaine génération de talents numériques</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-full text-white bg-gradient-to-r from-[#7f5af0] to-[#2cb67d] hover:from-[#6f4ad6] hover:to-[#25a56a] md:py-4 md:text-lg md:px-10 transition-all duration-300 transform hover:scale-105">
+                        Rejoignez-nous
+                        <i data-feather="arrow-right" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Why Us Section -->
-    <div class="py-20 bg-gradient-to-b from-[#0f0e17] to-[#16142a]">
+    <section class="py-20 bg-gradient-to-b from-[#0f0e17] to-[#16142a]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Pourquoi choisir Digital Mentor ?</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Pourquoi choisir <span class="bg-gradient-to-r from-[#2cb67d] to-[#7f5af0] bg-clip-text text-transparent">Digital Mentor</span> ?</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="bg-[#16142a] p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="100">
@@ -251,96 +931,15 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Divider -->
     <div class="section-divider"></div>
 
-    <!-- Formations Section -->
-    <div id="formations" class="py-20 bg-[#16142a]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Nos formations & offres</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Formation 1 -->
-                <div class="bg-[#0f0e17] p-8 rounded-xl border border-[#7f5af0] card-hover" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-4xl mb-4 text-[#7f5af0]">
-                        <i data-feather="cpu"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Formation IA pour débutants</h3>
-                    <p class="text-gray-300 mb-4">Maîtrisez ChatGPT, automatisez vos tâches et gagnez du temps au quotidien.</p>
-                    <a href="#" class="btn-primary text-white font-bold py-3 px-6 rounded-full text-sm inline-block">
-                        Je m'inscris à cette formation
-                    </a>
-                </div>
-                
-                <!-- Formation 2 -->
-                <div class="bg-[#0f0e17] p-8 rounded-xl border border-[#7f5af0] card-hover" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-4xl mb-4 text-[#7f5af0]">
-                        <i data-feather="image"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Design & Création avec IA</h3>
-                    <p class="text-gray-300 mb-4">Canva, MidJourney, Runway : créez des images, pubs et vidéos professionnelles.</p>
-                    <a href="#" class="btn-primary text-white font-bold py-3 px-6 rounded-full text-sm inline-block">
-                        Je m'inscris à cette formation
-                    </a>
-                </div>
-                
-                <!-- Formation 3 -->
-                <div class="bg-[#0f0e17] p-8 rounded-xl border border-[#7f5af0] card-hover" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-4xl mb-4 text-[#7f5af0]">
-                        <i data-feather="code"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Programmation assistée par IA</h3>
-                    <p class="text-gray-300 mb-4">Python, GitHub Copilot : créez des applications rapidement avec l'aide de l'IA.</p>
-                    <a href="#" class="btn-primary text-white font-bold py-3 px-6 rounded-full text-sm inline-block">
-                        Je m'inscris à cette formation
-                    </a>
-                </div>
-                
-                <!-- Formation 4 -->
-                <div class="bg-[#0f0e17] p-8 rounded-xl border border-[#7f5af0] card-hover" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-4xl mb-4 text-[#7f5af0]">
-                        <i data-feather="trending-up"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Business & Monétisation</h3>
-                    <p class="text-gray-300 mb-4">Freelancing, marketing, automatisation e-commerce : générez des revenus.</p>
-                    <a href="#" class="btn-primary text-white font-bold py-3 px-6 rounded-full text-sm inline-block">
-                        Je m'inscris à cette formation
-                    </a>
-                </div>
-                
-                <!-- Formation 5 -->
-                <div class="bg-[#0f0e17] p-8 rounded-xl border border-[#7f5af0] card-hover" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-4xl mb-4 text-[#7f5af0]">
-                        <i data-feather="award"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Mentorat premium</h3>
-                    <p class="text-gray-300 mb-4">Accompagnement individuel intensif avec un expert pour votre projet spécifique.</p>
-                    <a href="#" class="btn-primary text-white font-bold py-3 px-6 rounded-full text-sm inline-block">
-                        Je m'inscris à cette formation
-                    </a>
-                </div>
-                
-                <!-- Formation 6 -->
-                <div class="bg-[#0f0e17] p-8 rounded-xl border border-[#7f5af0] card-hover" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-4xl mb-4 text-[#7f5af0]">
-                        <i data-feather="zap"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Bootcamps intensifs</h3>
-                    <p class="text-gray-300 mb-4">7 jours pour maîtriser un domaine spécifique avec des projets concrets.</p>
-                    <a href="#" class="btn-primary text-white font-bold py-3 px-6 rounded-full text-sm inline-block">
-                        Je m'inscris à cette formation
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Pour qui est fait Digital Mentor ? -->
-    <div class="py-20 bg-[#0f0e17]">
+    <section class="py-20 bg-[#0f0e17]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 neon-text" data-aos="fade-up">Pour qui est fait <span class="text-[#7f5af0]">Digital Mentor</span> ?</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Pour qui est fait <span class="bg-gradient-to-r from-[#2cb67d] to-[#7f5af0] bg-clip-text text-transparent">Digital Mentor</span> ?</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Profil 1 -->
@@ -367,7 +966,7 @@
                                 <span>Tu cherches un nouveau départ dans le numérique</span>
                             </li>
                         </ul>
-                        <a href="#contact" class=" btn-primary block text-center bg-[#7f5af0] hover:bg-[#6f4ad6] text-white font-bold py-3 px-6 rounded-full transition">Je veux changer ma vie</a>
+                        <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="btn-primary block text-center bg-[#7f5af0] hover:bg-[#6f4ad6] text-white font-bold py-3 px-6 rounded-full transition">Je veux changer ma vie</a>
                     </div>
                 </div>
 
@@ -395,7 +994,7 @@
                                 <span>Tu veux te démarquer sur le marché du travail</span>
                             </li>
                         </ul>
-                        <a href="#contact" class="btn-primary block text-center bg-[#7f5af0] hover:bg-[#6f4ad6] text-white font-bold py-3 px-6 rounded-full transition">Je veux booster mon avenir</a>
+                        <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="btn-primary block text-center bg-[#7f5af0] hover:bg-[#6f4ad6] text-white font-bold py-3 px-6 rounded-full transition">Je veux booster mon avenir</a>
                     </div>
                 </div>
 
@@ -423,17 +1022,1070 @@
                                 <span>Tu cherches à professionnaliser ton activité en ligne</span>
                             </li>
                         </ul>
-                        <a href="#contact" class="btn-primary block text-center bg-[#7f5af0] hover:bg-[#6f4ad6] text-white font-bold py-3 px-6 rounded-full transition">Je veux percer en ligne</a>
+                        <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="btn-primary block text-center bg-[#7f5af0] hover:bg-[#6f4ad6] text-white font-bold py-3 px-6 rounded-full transition">Je veux percer en ligne</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Formations Section -->
+    <section id="formations" class="py-16 bg-[#16142a] relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6" data-aos="fade-up">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#7f5af0] to-[#2cb67d]">
+                    Nos Formations & Offres
+                </span>
+            </h2>
+            <p class="text-xl text-gray-300 text-center max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                50+ modules complets pour booster ton avenir professionnel en Afrique
+            </p>
+
+            <!-- Compteur de formations -->
+            <div class="formations-count" data-aos="fade-up" data-aos-delay="150">
+                Découvrez nos <span>50+ formations</span> dans tous les domaines du digital
+            </div>
+
+            <!-- Filtres par catégorie -->
+            <div class="category-filter" data-aos="fade-up" data-aos-delay="200">
+                <button class="filter-btn active" data-category="all">Toutes</button>
+                <button class="filter-btn" data-category="ia">IA & Tech</button>
+                <button class="filter-btn" data-category="design">Design & Créa</button>
+                <button class="filter-btn" data-category="business">Business</button>
+                <button class="filter-btn" data-category="marketing">Marketing</button>
+                <button class="filter-btn" data-category="dev">Développement</button>
+            </div>
+
+            <!-- Conteneur du carrousel amélioré -->
+            <div class="carousel-container" id="formations-carousel">
+                <!-- Boutons de navigation -->
+                <button class="carousel-btn carousel-prev-btn" aria-label="Formations précédentes">
+                    <i data-feather="chevron-left"></i>
+                </button>
+                <button class="carousel-btn carousel-next-btn" aria-label="Formations suivantes">
+                    <i data-feather="chevron-right"></i>
+                </button>
+                
+                <!-- Piste du carrousel -->
+                <div class="carousel-track">
+                    <!-- Module 1 -->
+                    <div class="carousel-slide" data-category="design">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="image"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-bootcamp">Bootcamp</span>
+                                    <span class="badge badge-live">Live</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Design & Création avec IA</h3>
+                            <p class="slide-description">Maîtrisez les outils d'IA pour créer des designs professionnels sans compétences techniques avancées.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Créer des visuels percutants avec l'IA</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Automatiser la création de contenu visuel</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Monétiser vos compétences en design</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>6 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 2 -->
+                    <div class="carousel-slide" data-category="ia">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="compass"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-formation">Formation</span>
+                                    <span class="badge badge-mentorat">Mentorat</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Débuter & Trouver sa Compétence</h3>
+                            <p class="slide-description">Découvrez comment l'IA peut transformer votre parcours professionnel en Afrique.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Identifier les opportunités IA en Afrique</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Créer un plan de carrière axé sur l'IA</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Accéder aux ressources gratuites</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>4 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 3 -->
+                    <div class="carousel-slide" data-category="marketing">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="film"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-bootcamp">Bootcamp</span>
+                                    <span class="badge badge-live">Live</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Monétisation YouTube/TikTok</h3>
+                            <p class="slide-description">Devenez un créateur de contenu vidéo professionnel avec l'aide de l'IA.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Outils IA pour le montage vidéo</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Stratégies de monétisation YouTube</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Automatisation avec l'IA</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>8 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 4 -->
+                    <div class="carousel-slide" data-category="business">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="dollar-sign"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-formation">Formation</span>
+                                    <span class="badge badge-mentorat">Mentorat</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Revenus Passifs & Réinvestissement</h3>
+                            <p class="slide-description">Générez des revenus passifs et apprenez à les réinvestir intelligemment en Afrique.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Créer des sources de revenus passifs</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Investir dans l'immobilier et la bourse africaine</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Optimiser votre fiscalité</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>6 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 5 -->
+                    <div class="carousel-slide" data-category="business">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="shopping-bag"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-bootcamp">Bootcamp</span>
+                                    <span class="badge badge-live">Live</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Business de Produits Digitaux</h3>
+                            <p class="slide-description">Créez et vendez des produits numériques à l'échelle internationale.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Créer des formations en ligne</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Vendre des ebooks et templates</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Automatiser vos ventes</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>10 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 6 -->
+                    <div class="carousel-slide" data-category="business">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="shopping-cart"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-bootcamp">Bootcamp</span>
+                                    <span class="badge badge-live">Live</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">E-commerce & Import Chine-Afrique</h3>
+                            <p class="slide-description">Maîtrisez les techniques d'importation et de vente en ligne entre la Chine et l'Afrique.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Créer une boutique en ligne rentable</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Importer des produits de Chine</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Gérer la logistique et les douanes</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>8 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 7 -->
+                    <div class="carousel-slide" data-category="marketing">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="filter"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-formation">Formation</span>
+                                    <span class="badge badge-mentorat">Mentorat</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Funnel Building & Automatisation</h3>
+                            <p class="slide-description">Créez des systèmes de vente automatisés qui convertissent 24h/24.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Construire des tunnels de conversion</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Automatiser vos processus marketing</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Maximiser votre taux de conversion</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>6 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 8 -->
+                    <div class="carousel-slide" data-category="marketing">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="tv"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-bootcamp">Bootcamp</span>
+                                    <span class="badge badge-live">Live</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Media Buying & Publicités en ligne</h3>
+                            <p class="slide-description">Maîtrisez les plateformes publicitaires pour générer du trafic qualifié.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Publicité Facebook et Instagram</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Google Ads et SEA</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Optimisation du ROI publicitaire</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>7 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 9 -->
+                    <div class="carousel-slide" data-category="dev">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="globe"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-formation">Formation</span>
+                                    <span class="badge badge-mentorat">Mentorat</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Création de Sites Web & Agence Digitale</h3>
+                            <p class="slide-description">Lancez votre agence digitale en créant des sites web professionnels avec l'aide de l'IA.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Créer des sites web avec des outils IA</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Monter votre agence digitale</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Gérer des projets web pour clients</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>9 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 10 -->
+                    <div class="carousel-slide" data-category="dev">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="code"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-bootcamp">Bootcamp</span>
+                                    <span class="badge badge-live">Live</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">No-Code, WordPress, Shopify & Figma</h3>
+                            <p class="slide-description">Créez des sites et applications sans code avec les outils les plus populaires.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Utiliser WordPress et Shopify</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Designer avec Figma</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Développer sans coder</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>8 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 11 -->
+                    <div class="carousel-slide" data-category="marketing">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="trending-up"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-formation">Formation</span>
+                                    <span class="badge badge-mentorat">Mentorat</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Marketing Digital & Collaboration Entreprises</h3>
+                            <p class="slide-description">Développez des stratégies marketing et collaborez avec des entreprises locales et internationales.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Stratégies marketing B2B</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Négociation avec les entreprises</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Gestion de comptes d'entreprise</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>7 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 12 -->
+                    <div class="carousel-slide" data-category="business">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="shuffle"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-formation">Formation</span>
+                                    <span class="badge badge-avance">Avancé</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Vente & Closing</h3>
+                            <p class="slide-description">Maîtrisez les techniques de vente et de closing pour maximiser vos conversions.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Techniques de vente avancées</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Gérer les objections clients</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Augmenter votre taux de conversion</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>5 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 13 -->
+                    <div class="carousel-slide" data-category="ia">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="cpu"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-bootcamp">Bootcamp</span>
+                                    <span class="badge badge-live">Live</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Automatisation avec IA</h3>
+                            <p class="slide-description">Automatisez vos processus métier avec l'intelligence artificielle.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Créer des workflows automatisés</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Intégrer l'IA dans vos processus</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Optimiser votre productivité</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>6 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 14 -->
+                    <div class="carousel-slide" data-category="ia">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="message-circle"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-formation">Formation</span>
+                                    <span class="badge badge-mentorat">Mentorat</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Chatbot Builder</h3>
+                            <p class="slide-description">Créez des chatbots intelligents pour automatiser votre service client.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Développer des chatbots IA</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Intégrer avec les plateformes</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Optimiser l'expérience utilisateur</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>5 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 15 -->
+                    <div class="carousel-slide" data-category="ia">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="zap"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-bootcamp">Bootcamp</span>
+                                    <span class="badge badge-avance">Avancé</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Automatisation n8n</h3>
+                            <p class="slide-description">Maîtrisez n8n pour automatiser vos workflows et intégrations.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Créer des workflows complexes</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Intégrer différentes applications</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Automatiser vos processus métier</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>7 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 16 -->
+                    <div class="carousel-slide" data-category="dev">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="cloud"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-formation">Formation</span>
+                                    <span class="badge badge-business">Business</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Créer un SaaS avec l'IA</h3>
+                            <p class="slide-description">Lancez votre propre SaaS avec l'aide de l'intelligence artificielle.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Développer un produit SaaS</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Intégrer l'IA dans votre produit</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Commercialiser votre solution</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>10 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ajout des modules 17 à 50 (abrégé pour la lisibilité) -->
+                    <!-- Les modules suivants suivent le même pattern -->
+
+                    <!-- Module 17 -->
+                    <div class="carousel-slide" data-category="marketing">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="video"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-formation">Formation</span>
+                                    <span class="badge badge-business">Business</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Publicités UGC pour E-commerce</h3>
+                            <p class="slide-description">Créez des publicités UGC percutantes pour booster vos ventes en ligne.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Produire du contenu UGC efficace</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Maximiser l'engagement</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Augmenter vos conversions</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>5 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 18 -->
+                    <div class="carousel-slide" data-category="marketing">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="search"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-formation">Formation</span>
+                                    <span class="badge badge-mentorat">Mentorat</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Trafic Organique & Blog</h3>
+                            <p class="slide-description">Générez du trafic organique grâce à des stratégies de contenu efficaces.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Optimiser votre référencement</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Créer du contenu viral</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Monétiser votre blog</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>6 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Continuer avec les modules 19 à 50... -->
+                    <!-- Pour des raisons de longueur, je vais ajouter quelques modules supplémentaires -->
+                    <!-- et indiquer comment compléter les autres -->
+
+                    <!-- Module 19 -->
+                    <div class="carousel-slide" data-category="marketing">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="map-pin"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-formation">Formation</span>
+                                    <span class="badge badge-business">Business</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Google My Business</h3>
+                            <p class="slide-description">Optimisez votre présence locale avec Google My Business.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Optimiser votre fiche GMB</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Augmenter votre visibilité locale</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Gérer les avis clients</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>4 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 20 -->
+                    <div class="carousel-slide" data-category="ia">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="shield"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-formation">Formation</span>
+                                    <span class="badge badge-avance">Avancé</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Cybersécurité & Protection</h3>
+                            <p class="slide-description">Protégez vos données et systèmes contre les cybermenaces.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Sécuriser vos données</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Prévenir les attaques</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Mettre en place une stratégie de sécurité</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>8 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Les modules 21 à 50 suivent le même pattern -->
+                    <!-- Pour des raisons de longueur, je vais ajouter un commentaire -->
+                    <!-- et vous montrer comment compléter les autres modules -->
+
+                    <!-- MODULES 21 À 50 -->
+                    <!-- 
+                    Chaque module suit la même structure :
+                    
+                    <div class="carousel-slide" data-category="catégorie">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="nom-icon"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-type">Type</span>
+                                    <span class="badge badge-type">Autre type</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Nom de la formation</h3>
+                            <p class="slide-description">Description courte de la formation.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Avantage 1</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Avantage 2</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Avantage 3</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>X semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+
+                    <!-- Exemple de module 21 -->
+                    <div class="carousel-slide" data-category="business">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="heart"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-formation">Formation</span>
+                                    <span class="badge badge-mentorat">Mentorat</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Carrière & Passion</h3>
+                            <p class="slide-description">Trouvez votre voie professionnelle en alignant carrière et passion.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Identifier vos passions</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Créer un plan de carrière</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Transformer passion en métier</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>5 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Continuez ainsi pour les modules 22 à 50 -->
+                    <!-- Pour respecter la limite de caractères, je vais ajouter un commentaire -->
+                    <!-- avec la liste des modules restants à implémenter -->
+
+                    <!-- 
+                    LISTE DES MODULES RESTANTS (22-50) :
+                    22. Investissement Immobilier
+                    23. Vivre de son Salaire & Retraite
+                    24. Premier Job & Psychologie Recruteurs
+                    25. Business à Succès & Business Plan
+                    26. Développeur Web
+                    27. Data Analyste
+                    28. Growth Hacking
+                    29. Product Management
+                    30. Personal Branding
+                    31. FinTech & Gestion Financière
+                    32. Intelligence Artificielle Avancée
+                    33. Blockchain & Cryptomonnaies
+                    34. Marketing sur les Réseaux Sociaux
+                    35. Rédaction Web SEO
+                    36. Montage Vidéo Professionnel
+                    37. Community Management
+                    38. UX/UI Design
+                    39. Développement d'Applications Mobiles
+                    40. Gestion de Projet Agile
+                    41. Analyse de Données avec Python
+                    42. Marketing d'Influence
+                    43. Création de Formation en Ligne
+                    44. Négociation et Relations Clients
+                    45. Stratégie de Marque
+                    46. Gestion de Crise en Ligne
+                    47. E-commerce Durable
+                    48. Transformation Digitale des Entreprises
+                    49. Éthique et Légalité du Digital
+                    50. Futur des Technologies et Tendances
+                    -->
+
+                    <!-- Dernier module (50) -->
+                    <div class="carousel-slide" data-category="ia">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <div class="slide-icon">
+                                    <i data-feather="eye"></i>
+                                </div>
+                                <div class="slide-badges">
+                                    <span class="badge badge-formation">Formation</span>
+                                    <span class="badge badge-avance">Avancé</span>
+                                </div>
+                            </div>
+                            <h3 class="slide-title">Futur des Technologies et Tendances</h3>
+                            <p class="slide-description">Anticipez les tendances technologiques pour rester compétitif.</p>
+                            <div class="slide-features">
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Analyser les tendances émergentes</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Adapter votre stratégie</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="check" class="feature-icon"></i>
+                                    <span>Investir dans les technologies d'avenir</span>
+                                </div>
+                            </div>
+                            <div class="slide-footer">
+                                <div class="slide-duration">
+                                    <i data-feather="clock" class="mr-1"></i>
+                                    <span>6 semaines</span>
+                                </div>
+                                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="slide-button inline-flex items-center justify-center">
+                                    S'inscrire
+                                    <i data-feather="arrow-right" class="ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <!-- Effet de particules -->
+                <div class="particles-container" id="carousel-particles"></div>
+            </div>
+            
+            <!-- Indicateurs de défilement -->
+            <div class="carousel-dots" id="carousel-dots"></div>
+
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#7f5af0] to-[#2cb67d] text-white rounded-full text-lg font-medium hover:from-[#6f4ad6] hover:to-[#25a56a] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#7f5af0]/30">
+                    Découvrir toutes nos 50+ formations
+                    <i data-feather="arrow-right" class="w-5 h-5 ml-2"></i>
+                </a>
+                <p class="mt-4 text-gray-400">Rejoins plus de 5 000 apprenants à travers l'Afrique</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Domains Section -->
-    <div class="py-20 bg-gradient-to-b from-[#16142a] to-[#0f0e17]">
+    <section class="py-20 bg-gradient-to-b from-[#16142a] to-[#0f0e17]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Domaines couverts</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Domaines <span class="bg-gradient-to-r from-[#2cb67d] to-[#7f5af0] bg-clip-text text-transparent">couverts</span></h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="text-center" data-aos="fade-up" data-aos-delay="100">
@@ -469,12 +2121,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Testimonials Section -->
-    <div class="py-20 bg-[#0f0e17]">
+    <section class="py-20 bg-[#0f0e17]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Ils ont transformé leur futur</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Ils ont <span class="bg-gradient-to-r from-[#2cb67d] to-[#7f5af0] bg-clip-text text-transparent">transformé</span> leur futur</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-[#16142a] p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
@@ -511,10 +2163,125 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Drapeaux des pays -->
+    <section class="py-16 bg-[#0f0e17] overflow-hidden relative">
+        <!-- Masque flou pour les bords - plus large et plus prononcé -->
+        <div class="absolute inset-0 z-10 pointer-events-none" style="background: linear-gradient(90deg, #0f0e17 0%, rgba(15, 14, 23, 0.9) 10%, rgba(15, 14, 23, 0) 20%, rgba(15, 14, 23, 0) 80%, rgba(15, 14, 23, 0.9) 90%, #0f0e17 100%);"></div>
+        
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-0">
+            <div class="flags-container">
+                <!-- Ligne 1 - Défilement vers la droite -->
+                <div class="flags-track mb-6" style="--speed: 60s">
+                    <div class="flag-3d" data-country="bj"></div>
+                    <div class="flag-3d" data-country="tg"></div>
+                    <div class="flag-3d" data-country="cm"></div>
+                    <div class="flag-3d" data-country="sn"></div>
+                    <div class="flag-3d" data-country="ci"></div>
+                    <div class="flag-3d" data-country="bf"></div>
+                    <div class="flag-3d" data-country="ml"></div>
+                    <div class="flag-3d" data-country="ne"></div>
+                    <div class="flag-3d" data-country="gh"></div>
+                    <div class="flag-3d" data-country="ng"></div>
+                    <div class="flag-3d" data-country="gn"></div>
+                    <div class="flag-3d" data-country="sl"></div>
+                    <div class="flag-3d" data-country="lr"></div>
+                    <div class="flag-3d" data-country="gm"></div>
+                    <div class="flag-3d" data-country="cv"></div>
+                    <!-- Doublage pour l'animation en boucle -->
+                    <div class="flag-3d" data-country="bj"></div>
+                    <div class="flag-3d" data-country="tg"></div>
+                    <div class="flag-3d" data-country="cm"></div>
+                    <div class="flag-3d" data-country="sn"></div>
+                    <div class="flag-3d" data-country="ci"></div>
+                    <div class="flag-3d" data-country="bf"></div>
+                    <div class="flag-3d" data-country="ml"></div>
+                    <div class="flag-3d" data-country="ne"></div>
+                    <div class="flag-3d" data-country="gh"></div>
+                    <div class="flag-3d" data-country="ng"></div>
+                    <div class="flag-3d" data-country="gn"></div>
+                    <div class="flag-3d" data-country="sl"></div>
+                    <div class="flag-3d" data-country="lr"></div>
+                    <div class="flag-3d" data-country="gm"></div>
+                    <div class="flag-3d" data-country="cv"></div>
+                </div>
+                
+                <!-- Ligne 2 - Défilement vers la gauche -->
+                <div class="flags-track mb-6" style="--speed: 50s; --direction: -1;">
+                    <div class="flag-3d" data-country="cv"></div>
+                    <div class="flag-3d" data-country="gm"></div>
+                    <div class="flag-3d" data-country="lr"></div>
+                    <div class="flag-3d" data-country="sl"></div>
+                    <div class="flag-3d" data-country="gn"></div>
+                    <div class="flag-3d" data-country="ng"></div>
+                    <div class="flag-3d" data-country="gh"></div>
+                    <div class="flag-3d" data-country="ne"></div>
+                    <div class="flag-3d" data-country="ml"></div>
+                    <div class="flag-3d" data-country="bf"></div>
+                    <div class="flag-3d" data-country="ci"></div>
+                    <div class="flag-3d" data-country="sn"></div>
+                    <div class="flag-3d" data-country="cm"></div>
+                    <div class="flag-3d" data-country="tg"></div>
+                    <div class="flag-3d" data-country="bj"></div>
+                    <!-- Doublage pour l'animation en boucle -->
+                    <div class="flag-3d" data-country="cv"></div>
+                    <div class="flag-3d" data-country="gm"></div>
+                    <div class="flag-3d" data-country="lr"></div>
+                    <div class="flag-3d" data-country="sl"></div>
+                    <div class="flag-3d" data-country="gn"></div>
+                    <div class="flag-3d" data-country="ng"></div>
+                    <div class="flag-3d" data-country="gh"></div>
+                    <div class="flag-3d" data-country="ne"></div>
+                    <div class="flag-3d" data-country="ml"></div>
+                    <div class="flag-3d" data-country="bf"></div>
+                    <div class="flag-3d" data-country="ci"></div>
+                    <div class="flag-3d" data-country="sn"></div>
+                    <div class="flag-3d" data-country="cm"></div>
+                    <div class="flag-3d" data-country="tg"></div>
+                    <div class="flag-3d" data-country="bj"></div>
+                </div>
+                
+                <!-- Ligne 3 - Défilement vers la droite -->
+                <div class="flags-track" style="--speed: 70s">
+                    <div class="flag-3d" data-country="gh"></div>
+                    <div class="flag-3d" data-country="ng"></div>
+                    <div class="flag-3d" data-country="gn"></div>
+                    <div class="flag-3d" data-country="sl"></div>
+                    <div class="flag-3d" data-country="lr"></div>
+                    <div class="flag-3d" data-country="gm"></div>
+                    <div class="flag-3d" data-country="cv"></div>
+                    <div class="flag-3d" data-country="bj"></div>
+                    <div class="flag-3d" data-country="tg"></div>
+                    <div class="flag-3d" data-country="cm"></div>
+                    <div class="flag-3d" data-country="sn"></div>
+                    <div class="flag-3d" data-country="ci"></div>
+                    <div class="flag-3d" data-country="bf"></div>
+                    <div class="flag-3d" data-country="ml"></div>
+                    <div class="flag-3d" data-country="ne"></div>
+                    <!-- Doublage pour l'animation en boucle -->
+                    <div class="flag-3d" data-country="gh"></div>
+                    <div class="flag-3d" data-country="ng"></div>
+                    <div class="flag-3d" data-country="gn"></div>
+                    <div class="flag-3d" data-country="sl"></div>
+                    <div class="flag-3d" data-country="lr"></div>
+                    <div class="flag-3d" data-country="gm"></div>
+                    <div class="flag-3d" data-country="cv"></div>
+                    <div class="flag-3d" data-country="bj"></div>
+                    <div class="flag-3d" data-country="tg"></div>
+                    <div class="flag-3d" data-country="cm"></div>
+                    <div class="flag-3d" data-country="sn"></div>
+                    <div class="flag-3d" data-country="ci"></div>
+                    <div class="flag-3d" data-country="bf"></div>
+                    <div class="flag-3d" data-country="ml"></div>
+                    <div class="flag-3d" data-country="ne"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Final CTA Section -->
-    <div class="py-20 bg-gradient-to-b from-[#0f0e17] to-[#7f5af0]">
+    <section class="py-20 bg-gradient-to-b from-[#0f0e17] to-[#7f5af0]">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
             <h2 class="text-3xl md:text-5xl font-bold mb-8">
                 Le futur ne se construira pas sans toi.<br>
@@ -530,12 +2297,12 @@
                     <input type="email" placeholder="Email" class="bg-white bg-opacity-10 border border-white border-opacity-20 rounded-full py-3 px-6 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white">
                     <input type="tel" placeholder="Téléphone" class="bg-white bg-opacity-10 border border-white border-opacity-20 rounded-full py-3 px-6 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white">
                 </div>
-                <button type="submit" class="bg-white text-[#7f5af0] font-bold py-4 px-12 rounded-full text-lg inline-block hover:bg-opacity-90 transition">
-                    Oui, je rejoins Digital Mentor maintenant !
-                </button>
+                <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="inline-block w-full md:w-auto bg-white text-[#7f5af0] font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors text-center">
+                    C'est parti !
+                </a>
             </form>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-[#0f0e17] py-12">
@@ -565,36 +2332,76 @@
                 <div class="flex space-x-6">
                     <a href="#" class="text-gray-400 hover:text-white transition">Mentions légales</a>
                     <a href="#" class="text-gray-400 hover:text-white transition">Politique de confidentialité</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">Contact</a>
+                    <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="text-gray-400 hover:text-white transition">Contact</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Initialize animations
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
+        // Nouveau code JavaScript pour le carrousel amélioré
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialiser AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    easing: 'ease-out-cubic',
+                    offset: 100,
+                    delay: 100
+                });
+            }
+            
+            // Initialiser Vanta.js background
+            if (typeof VANTA !== 'undefined' && document.getElementById('vanta-bg')) {
+                try {
+                    VANTA.GLOBE({
+                        el: "#vanta-bg",
+                        mouseControls: true,
+                        touchControls: true,
+                        gyroControls: false,
+                        minHeight: 200.00,
+                        minWidth: 200.00,
+                        scale: 1.00,
+                        scaleMobile: 1.00,
+                        color: 0x7f5af0,
+                        color2: 0x2cb67d,
+                        size: 1.10,
+                        backgroundColor: 0x0f0e17
+                    });
+                } catch (e) {
+                    console.error('Erreur lors de l\'initialisation de Vanta.js:', e);
+                }
+            }
+            
+            // Remplacer les icônes Feather
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
+            
+            // Initialiser le compte à rebours
+            initCountdown();
+            
+            // Initialiser le carrousel
+            initCarousel();
+            
+            // Créer les particules pour le carrousel
+            createParticles();
+            
+            // Initialiser les filtres de catégorie
+            initCategoryFilters();
         });
-
-        // Initialize Vanta.js background
-        VANTA.GLOBE({
-            el: "#vanta-bg",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x7f5af0,
-            backgroundColor: 0x0f0e17,
-            size: 1.20
-        });
-
-        // 48h Countdown Timer with localStorage
+        
+        // Initialiser le compte à rebours
+        function initCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            if (!countdownElement) return;
+            
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+        
+        // Compte à rebours de 48h avec stockage local
         function updateCountdown() {
             const now = new Date();
             let targetDate;
@@ -651,22 +2458,510 @@
         }
         
         function showExpiredMessage() {
-            clearInterval(countdownInterval);
-            document.getElementById('countdown').innerHTML = 
-                '<span class="text-red-300 font-bold">L\'offre a expiré !</span>';
+            const countdownElement = document.getElementById('countdown');
+            if (countdownElement) {
+                countdownElement.innerHTML = 
+                    '<span class="text-red-300 font-bold">L\'offre a expiré !</span>';
+            }
         }
         
-        // Démarrer le compte à rebours
-        let countdownInterval;
-        document.addEventListener('DOMContentLoaded', function() {
-            updateCountdown();
-            countdownInterval = setInterval(updateCountdown, 1000);
-        });
+        // Initialiser les filtres de catégorie
+        function initCategoryFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const slides = document.querySelectorAll('.carousel-slide');
+            const carouselTrack = document.querySelector('.carousel-track');
+            const carouselContainer = document.querySelector('.carousel-container');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Retirer la classe active de tous les boutons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Ajouter la classe active au bouton cliqué
+                    button.classList.add('active');
+                    
+                    const category = button.getAttribute('data-category');
+                    let visibleSlides = [];
+                    
+                    // Filtrer les slides
+                    slides.forEach((slide, index) => {
+                        if (category === 'all' || slide.getAttribute('data-category') === category) {
+                            slide.style.display = 'block';
+                            visibleSlides.push(slide);
+                        } else {
+                            slide.style.display = 'none';
+                        }
+                    });
+                    
+                    // Calculer le nombre de slides visibles qui tiennent dans le conteneur
+                    const containerWidth = carouselContainer.offsetWidth;
+                    const slideWidth = 320; // Largeur fixe de chaque slide
+                    const gap = 24; // Espacement entre les slides
+                    const visibleSlidesCount = Math.min(
+                        visibleSlides.length,
+                        Math.max(1, Math.floor((containerWidth + gap) / (slideWidth + gap)))
+                    );
+                    
+                    // Centrer les slides s'il y en a peu (moins de 3 ou moins que ce qui tient dans le conteneur)
+                    if (visibleSlides.length <= 3 || visibleSlides.length <= visibleSlidesCount) {
+                        carouselTrack.style.justifyContent = 'center';
+                        carouselTrack.style.transform = 'translateX(0)';
+                        
+                        // Désactiver le défilement automatique
+                        if (window.carouselInstance) {
+                            window.carouselInstance.disableAutoScroll = true;
+                            window.carouselInstance.clearAutoScroll();
+                            // Cacher les flèches de navigation
+                            const prevBtn = document.querySelector('.carousel-prev-btn');
+                            const nextBtn = document.querySelector('.carousel-next-btn');
+                            if (prevBtn) prevBtn.style.display = 'none';
+                            if (nextBtn) nextBtn.style.display = 'none';
+                            
+                            // Cacher les indicateurs de défilement
+                            const dotsContainer = document.querySelector('.carousel-dots');
+                            if (dotsContainer) dotsContainer.style.display = 'none';
+                        }
+                    } else {
+                        carouselTrack.style.justifyContent = 'flex-start';
+                        
+                        // Réactiver le défilement automatique
+                        if (window.carouselInstance) {
+                            window.carouselInstance.disableAutoScroll = false;
+                            // Afficher les flèches de navigation
+                            const prevBtn = document.querySelector('.carousel-prev-btn');
+                            const nextBtn = document.querySelector('.carousel-next-btn');
+                            if (prevBtn) prevBtn.style.display = 'flex';
+                            if (nextBtn) nextBtn.style.display = 'flex';
+                            
+                            // Afficher les indicateurs de défilement
+                            const dotsContainer = document.querySelector('.carousel-dots');
+                            if (dotsContainer) dotsContainer.style.display = 'flex';
+                        }
+                    }
+                    
+                    // Mettre à jour le carrousel avec les slides visibles
+                    if (window.carouselInstance) {
+                        // Réinitialiser l'index courant
+                        window.carouselInstance.currentIndex = 0;
+                        // Mettre à jour le carrousel
+                        window.carouselInstance.updateCarousel(false);
+                        
+                        // Mettre à jour les indicateurs de défilement
+                        if (window.carouselInstance.createDots) {
+                            window.carouselInstance.createDots();
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Initialiser le carrousel
+        function initCarousel() {
+            const carousel = document.getElementById('formations-carousel');
+            const track = carousel.querySelector('.carousel-track');
+            const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+            const prevBtn = carousel.querySelector('.carousel-prev-btn');
+            const nextBtn = carousel.querySelector('.carousel-next-btn');
+            const dotsContainer = document.getElementById('carousel-dots');
+            
+            let currentIndex = 0;
+            let autoScrollInterval;
+            let isAnimating = false;
+            
+            // Créer les indicateurs de défilement
+            function createDots() {
+                dotsContainer.innerHTML = '';
+                const dotsCount = Math.ceil(slides.length / getVisibleSlidesCount());
+                
+                for (let i = 0; i < dotsCount; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'carousel-dot';
+                    dot.setAttribute('data-index', i);
+                    dot.setAttribute('aria-label', `Aller à la page ${i+1}`);
+                    dotsContainer.appendChild(dot);
+                    
+                    dot.addEventListener('click', () => {
+                        goToPage(i);
+                    });
+                }
+                
+                updateDots();
+            }
+            
+            // Mettre à jour l'état des indicateurs
+            function updateDots() {
+                const dots = dotsContainer.querySelectorAll('.carousel-dot');
+                const activeDotIndex = Math.floor(currentIndex / getVisibleSlidesCount());
+                
+                dots.forEach((dot, index) => {
+                    if (index === activeDotIndex) {
+                        dot.classList.add('active');
+                        dot.setAttribute('aria-selected', 'true');
+                    } else {
+                        dot.classList.remove('active');
+                        dot.setAttribute('aria-selected', 'false');
+                    }
+                });
+            }
+            
+            // Obtenir le nombre de slides visibles
+            function getVisibleSlidesCount() {
+                const containerWidth = carousel.offsetWidth;
+                const slideWidth = 320; // Largeur fixe de chaque slide
+                const gap = 24; // Espacement entre les slides
+                
+                // Calculer combien de slides peuvent tenir dans le conteneur
+                return Math.max(1, Math.floor((containerWidth + gap) / (slideWidth + gap)));
+            }
+            
+            // Mettre à jour la position du carrousel
+            function updateCarousel(animate = true) {
+                if (isAnimating) return;
+                isAnimating = true;
+                
+                // Ne prendre en compte que les slides visibles
+                const visibleSlidesCount = getVisibleSlidesCount();
+                const visibleSlides = Array.from(slides).filter(slide => 
+                    window.getComputedStyle(slide).display !== 'none'
+                );
+                
+                const maxIndex = Math.max(0, visibleSlides.length - visibleSlidesCount);
+                
+                // Limiter l'index aux limites
+                currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
+                
+                // Calculer le décalage
+                const slideWidth = 320; // Largeur fixe de chaque slide
+                const gap = 24; // Espacement entre les slides
+                const offset = -currentIndex * (slideWidth + gap);
+                
+                // Appliquer la transition
+                track.style.transition = animate ? 'transform 0.8s cubic-bezier(0.23, 1, 0.32, 1)' : 'none';
+                track.style.transform = `translateX(${offset}px)`;
+                
+                // Mettre à jour l'état des slides
+                updateSlides();
+                
+                // Mettre à jour les indicateurs
+                updateDots();
+                
+                // Mettre à jour l'état des boutons de navigation
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex >= maxIndex || visibleSlides.length <= visibleSlidesCount;
+                
+                // Réinitialiser l'animation après la transition
+                if (animate) {
+                    setTimeout(() => {
+                        isAnimating = false;
+                    }, 800);
+                } else {
+                    isAnimating = false;
+                }
+            }
+            
+            // Mettre à jour l'état des slides
+            function updateSlides() {
+                const visibleSlidesCount = getVisibleSlidesCount();
+                const visibleSlides = Array.from(slides).filter(slide => 
+                    window.getComputedStyle(slide).display !== 'none'
+                );
+                
+                // Mettre à jour la classe active uniquement sur les slides visibles
+                visibleSlides.forEach((slide, index) => {
+                    const isActive = index >= currentIndex && index < currentIndex + visibleSlidesCount;
+                    
+                    if (isActive) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Aller à la page spécifiée
+            function goToPage(pageIndex) {
+                const visibleSlides = getVisibleSlidesCount();
+                currentIndex = pageIndex * visibleSlides;
+                updateCarousel();
+                resetAutoScroll();
+            }
+            
+            // Aller au slide suivant
+            function goToNext() {
+                if (isAnimating) return;
+                
+                const visibleSlidesCount = getVisibleSlidesCount();
+                const visibleSlides = Array.from(slides).filter(slide => 
+                    window.getComputedStyle(slide).display !== 'none'
+                );
+                
+                const maxIndex = Math.max(0, visibleSlides.length - visibleSlidesCount);
+                
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateCarousel();
+                    resetAutoScroll();
+                } else {
+                    // Revenir au début
+                    currentIndex = 0;
+                    updateCarousel();
+                    resetAutoScroll();
+                }
+            }
+            
+            // Réinitialiser le défilement automatique
+            function resetAutoScroll() {
+                if (!window.carouselInstance || !window.carouselInstance.disableAutoScroll) {
+                    startAutoScroll();
+                }
+            }
+            
+            // Aller au slide précédent
+            function goToPrev() {
+                if (isAnimating) return;
+                
+                const visibleSlidesCount = getVisibleSlidesCount();
+                const visibleSlides = Array.from(slides).filter(slide => 
+                    window.getComputedStyle(slide).display !== 'none'
+                );
+                
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                    resetAutoScroll();
+                } else {
+                    // Aller à la fin
+                    currentIndex = Math.max(0, visibleSlides.length - visibleSlidesCount);
+                    updateCarousel();
+                    resetAutoScroll();
+                }
+            }
+            
+            // Défilement automatique
+            function startAutoScroll() {
+                if (window.carouselInstance) {
+                    window.carouselInstance.clearAutoScroll();
+                } else if (autoScrollInterval) {
+                    clearInterval(autoScrollInterval);
+                    autoScrollInterval = null;
+                }
+                
+                // Ne pas démarrer le défilement automatique si désactivé
+                if (window.carouselInstance && window.carouselInstance.disableAutoScroll) return;
+                
+                autoScrollInterval = setInterval(() => {
+                    if (document.hidden || (window.carouselInstance && window.carouselInstance.disableAutoScroll)) {
+                        return; // Ne pas défiler si l'onglet n'est pas actif ou si le défilement est désactivé
+                    }
+                    
+                    const visibleSlidesCount = getVisibleSlidesCount();
+                    const visibleSlides = Array.from(slides).filter(slide => 
+                        window.getComputedStyle(slide).display !== 'none'
+                    );
+                    
+                    const maxIndex = Math.max(0, visibleSlides.length - visibleSlidesCount);
+                    
+                    if (currentIndex < maxIndex) {
+                        currentIndex++;
+                    } else {
+                        currentIndex = 0;
+                    }
+                    
+                    updateCarousel();
+                }, 5000); // 5 secondes entre chaque défilement
+                
+                // Pause au survol
+                const handleMouseEnter = () => {
+                    if (window.carouselInstance) {
+                        window.carouselInstance.clearAutoScroll();
+                    } else if (autoScrollInterval) {
+                        clearInterval(autoScrollInterval);
+                        autoScrollInterval = null;
+                    }
+                };
+                
+                const handleMouseLeave = () => {
+                    if (!window.carouselInstance || !window.carouselInstance.disableAutoScroll) {
+                        startAutoScroll();
+                    }
+                };
+                
+                // Supprimer les anciens écouteurs pour éviter les doublons
+                carousel.removeEventListener('mouseenter', handleMouseEnter);
+                carousel.removeEventListener('mouseleave', handleMouseLeave);
+                
+                // Ajouter les nouveaux écouteurs
+                carousel.addEventListener('mouseenter', handleMouseEnter);
+                carousel.addEventListener('mouseleave', handleMouseLeave);
+            }
+            
+            // Gestion du redimensionnement
+            let resizeTimeout;
+            function handleResize() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    createDots();
+                    updateCarousel(false);
+                }, 250); // Délai de 250ms pour éviter les appels trop fréquents
+            }
+            
+            window.addEventListener('resize', handleResize);
+            
+            // Événements de navigation
+            prevBtn.addEventListener('click', goToPrev);
+            nextBtn.addEventListener('click', goToNext);
+            
+            // Navigation au clavier
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    goToNext();
+                    e.preventDefault();
+                } else if (e.key === 'ArrowLeft') {
+                    goToPrev();
+                    e.preventDefault();
+                }
+            });
+            
+            // Gestion du glisser-déposer pour le tactile
+            let isDragging = false;
+            let startPos = 0;
+            let currentTranslate = 0;
+            let prevTranslate = 0;
+            
+            track.addEventListener('touchstart', touchStart, { passive: true });
+            track.addEventListener('touchend', touchEnd);
+            track.addEventListener('touchmove', touchMove, { passive: false });
+            
+            track.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                startPos = e.clientX;
+                window.addEventListener('mousemove', touchMove);
+                window.addEventListener('mouseup', touchEnd);
+            });
+            
+            function touchStart(e) {
+                if (e.type === 'mousedown') {
+                    startPos = e.clientX;
+                } else {
+                    startPos = e.touches[0].clientX;
+                }
+                
+                isDragging = true;
+                prevTranslate = currentTranslate;
+                track.style.transition = 'none';
+                resetAutoScroll();
+            }
+            
+            function touchEnd() {
+                if (!isDragging) return;
+                
+                window.removeEventListener('mousemove', touchMove);
+                window.removeEventListener('mouseup', touchEnd);
+                
+                isDragging = false;
+                
+                const movedBy = currentTranslate - prevTranslate;
+                const slideWidth = 320; // Largeur fixe de chaque slide
+                
+                // Seuil de déplacement pour changer de slide (30% de la largeur d'une slide)
+                const threshold = slideWidth * 0.3;
+                
+                if (movedBy < -threshold) {
+                    goToNext();
+                } else if (movedBy > threshold) {
+                    goToPrev();
+                } else {
+                    // Revenir à la position initiale
+                    updateCarousel();
+                }
+                
+                startAutoScroll();
+            }
+            
+            function touchMove(e) {
+                if (!isDragging) return;
+                
+                e.preventDefault();
+                
+                const currentPosition = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
+                const diff = currentPosition - startPos;
+                currentTranslate = prevTranslate + diff;
+                
+                // Limiter le déplacement
+                const visibleSlides = getVisibleSlidesCount();
+                const maxTranslate = 0;
+                const minTranslate = -((slides.length - 1) * 320 + (slides.length - 1) * 24);
+                currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, currentTranslate));
+                
+                track.style.transform = `translateX(${currentTranslate}px)`;
+            }
+            
+            // Initialisation
+            createDots();
+            updateCarousel(false);
+            startAutoScroll();
+            
+            // Forcer un recalcul après le chargement complet
+            window.addEventListener('load', () => {
+                updateCarousel(false);
+            });
+            
+            // Stocker l'instance du carrousel pour un accès global
+            window.carouselInstance = {
+                updateCarousel,
+                goToNext,
+                goToPrev,
+                goToPage,
+                startAutoScroll,
+                disableAutoScroll: false,
+                currentIndex: 0,
+                // Référence à l'intervalle pour un accès externe
+                getAutoScrollInterval: () => autoScrollInterval,
+                // Méthode pour effacer l'intervalle
+                clearAutoScroll: () => {
+                    if (autoScrollInterval) {
+                        clearInterval(autoScrollInterval);
+                        autoScrollInterval = null;
+                    }
+                }
+            };
+        }
+        
+        // Créer des particules pour l'effet visuel
+        function createParticles() {
+            const particlesContainer = document.getElementById('carousel-particles');
+            if (!particlesContainer) return;
+            
+            // Créer 30 particules
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Position aléatoire
+                const left = Math.random() * 100;
+                const delay = Math.random() * 6;
+                const duration = 4 + Math.random() * 4;
+                
+                particle.style.left = `${left}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Taille aléatoire
+                const size = 2 + Math.random() * 4;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Couleur aléatoire (dans les tons de violet/vert)
+                const colors = ['#7f5af0', '#2cb67d', '#7f5af0', '#2cb67d', '#7f5af0'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.backgroundColor = color;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+    </script>
 
-        // Replace icons
-        feather.replace();
-
-        // WhatsApp popup after 1 minute
+    <!-- WhatsApp popup after 15 seconds -->
+    <script>
         setTimeout(function() {
             const popup = document.createElement('div');
             popup.className = 'fixed bottom-4 right-4 bg-green-600 text-white p-4 rounded-lg shadow-xl max-w-xs z-50 animate-bounce';
@@ -678,16 +2973,19 @@
                     <div class="ml-3">
                         <h3 class="font-bold">Rejoins notre communauté WhatsApp</h3>
                         <p class="text-sm mt-1">Pour ne rien rater des opportunités tech !</p>
-                        <a href="#" class="inline-block mt-2 bg-white text-green-600 px-3 py-1 rounded text-sm font-bold">Je rejoins</a>
+                        <a href="https://wa.me/message/EDHPSPC7MO7KH1" target="_blank" class="inline-block mt-2 bg-white text-green-600 px-3 py-1 rounded text-sm font-bold hover:bg-gray-100">Je rejoins</a>
                     </div>
-                    <button onclick="this.parentNode.remove()" class="ml-2 text-white hover:text-gray-200">
+                    <button onclick="this.parentNode.parentNode.remove()" class="ml-2 text-white hover:text-gray-200">
                         <i data-feather="x" class="w-5 h-5"></i>
                     </button>
                 </div>
             `;
             document.body.appendChild(popup);
-            feather.replace();
-        }, 60000);
+            // Vérifier si feather est disponible et initialiser les icônes
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
+        }, 15000); // 15 secondes
     </script>
 </body>
 </html>

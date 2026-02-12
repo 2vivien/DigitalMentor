@@ -1,9 +1,17 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Zap, Twitter, Github, Dribbble, Instagram, Youtube } from "lucide-react";
 
 export function Footer() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const socialIcons = [Twitter, Github, Dribbble, Instagram, Youtube];
+
+  if (!mounted) {
+    return <footer className="bg-white border-t-2 border-black pt-16 pb-8 min-h-[300px]" />;
+  }
 
   return (
     <footer className="bg-white border-t-2 border-black pt-16 pb-8">
@@ -14,7 +22,12 @@ export function Footer() {
               <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center text-neo-yellow">
                 <Zap className="w-4 h-4" />
               </div>
-              <span className="text-2xl font-bold tracking-tight">RetroUI</span>
+              <span 
+                className="text-2xl font-bold tracking-tight text-black"
+                style={{ textShadow: '2px 2px 0px #FFDE00' }}
+              >
+                DigitalMentor
+              </span>
             </div>
             <p className="text-lg text-gray-600 mb-6 font-medium">
               Components and templates designed to help you stand out.

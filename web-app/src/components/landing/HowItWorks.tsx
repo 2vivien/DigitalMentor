@@ -14,7 +14,7 @@ export function HowItWorks() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight mb-4">How It Works?</h2>
-          <p className="text-xl text-gray-600">Getting started with RetroUI is simple. Just three steps.</p>
+          <p className="text-xl text-gray-600">Getting started with DigitalMentor is simple. Just three steps.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">

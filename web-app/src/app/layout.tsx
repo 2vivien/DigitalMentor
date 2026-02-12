@@ -8,7 +8,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "RetroUI - Neo Brutalism",
+  title: "DigitalMentor - Neo Brutalism",
   description: "Neo brutalist style React UI blocks and templates",
 };
 

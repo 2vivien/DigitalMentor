@@ -8,35 +8,48 @@ export function Hero() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
+  if (!mounted) {
+    return (
+      <section className="relative pt-20 pb-20 sm:pt-28 sm:pb-28 overflow-hidden min-h-[400px]">
+        {/* Placeholder pour éviter le saut visuel */}
+      </section>
+    );
+  }
+
   return (
-    <section className="relative pt-20 pb-20 sm:pt-28 sm:pb-28 overflow-hidden">
-      {mounted && (
-        <>
-          <motion.div 
-            animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 3, repeat: Infinity }}
-            className="absolute top-20 left-10 hidden lg:block"
-          >
-            <Sparkle className="w-12 h-12 text-black fill-neo-yellow" strokeWidth={1.5} />
-          </motion.div>
+    <section 
+      className="relative pt-20 pb-20 sm:pt-28 sm:pb-28 overflow-hidden"
+      style={{ 
+        backgroundColor: '#fff8e1',
+        backgroundImage: 'linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(90deg, #e5e7eb 1px, transparent 1px)',
+        backgroundSize: '40px 40px'
+      }}
+    >
+      <>
+        <motion.div 
+          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 3, repeat: Infinity }}
+          className="absolute top-20 left-10 hidden lg:block"
+        >
+          <Sparkle className="w-12 h-12 text-black fill-neo-yellow" strokeWidth={1.5} />
+        </motion.div>
 
-          <motion.div 
-            animate={{ rotate: 360 }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-10 right-20 hidden lg:block"
-          >
-            <Star className="w-10 h-10 text-black fill-black" strokeWidth={1.5} />
-          </motion.div>
+        <motion.div 
+          animate={{ rotate: 360 }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-10 right-20 hidden lg:block"
+        >
+          <Star className="w-10 h-10 text-black fill-black" strokeWidth={1.5} />
+        </motion.div>
 
-          <motion.div 
-            animate={{ rotate: -360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-20 right-32 hidden lg:block opacity-30"
-          >
-            <Star className="w-8 h-8 text-black fill-black" strokeWidth={1.5} />
-          </motion.div>
-        </>
-      )}
+        <motion.div 
+          animate={{ rotate: -360 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-20 right-32 hidden lg:block opacity-30"
+        >
+          <Star className="w-8 h-8 text-black fill-black" strokeWidth={1.5} />
+        </motion.div>
+      </>
 
       <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
         <motion.div 
@@ -52,7 +65,7 @@ export function Hero() {
           Not Every Website Has To <br />
           <span 
             className="inline-block italic mt-4 text-black"
-            style={{ textShadow: '3px 3px 0px #FFDE00' }}
+            style={{ textShadow: '4px 4px 0px #FFDE00' }}
           >
             Look The Same!
           </span>

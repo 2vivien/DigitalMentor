@@ -17,7 +17,7 @@ export function Showcase() {
   if (!mounted) return <section className="py-24 bg-background min-h-[600px]" />;
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-[#FFFDF5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
         <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight mb-4">All The Cool Companies 😎 Are Using</h2>
         <div className="inline-block transform rotate-2">

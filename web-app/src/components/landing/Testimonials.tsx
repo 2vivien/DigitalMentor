@@ -7,14 +7,14 @@ const testimonials = [
   { name: "Ziv Reich", role: "Software Developer", quote: "Stumbled across your UI kit and grabbed it right away. Genuinely impressed! It's new, active, and getting constant improvements.", seed: "Felix" },
   { name: "Cameron Blackwood", role: "Content Creator", quote: "Added a ton of these components to my personal site. Really nice to see a different approach to a UI Lib style wise. Nice work!", seed: "Aneka" },
   { name: "Taseen Tanvir", role: "Founder & Designer", quote: "one of my fav ui libraries for the web. great work on this Arif. Hope it goes above and beyond", seed: "Taseen" },
-  { name: "Manoj Ahirwar", role: "Founder @ UseArticle", quote: "Finally rebuilt my personal website - big shoutout to RetroUI for introducing me to this fun library!", seed: "Manoj" },
-  { name: "Zhengyang Hou", role: "Indie Hacker", quote: "Two of my favorite retro-style UI component libraries: 1. retroui.dev by @ariflogs, 2. neobrutalism.dev by @samuelbreznjak", seed: "Zhen" },
+  { name: "Manoj Ahirwar", role: "Founder @ UseArticle", quote: "Finally rebuilt my personal website - big shoutout to DigitalMentor for introducing me to this fun library!", seed: "Manoj" },
+  { name: "Zhengyang Hou", role: "Indie Hacker", quote: "Two of my favorite retro-style UI component libraries: 1. digitalmentor.dev by @ariflogs, 2. neobrutalism.dev by @samuelbreznjak", seed: "Zhen" },
   { name: "Cameron Blackwood", role: "Content Creator", quote: "Added a ton of these components to my personal site. Really nice to see a different approach to a UI Lib style wise. Nice work!", seed: "Aneka2" },
 ];
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-[#FFFDF5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">

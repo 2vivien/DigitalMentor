@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #FFFDF5;
+  --color-neo-yellow: #FFDE00;
+  --color-neo-pink: #FF90E8;
+  --color-neo-mint: #E3FFEF;
+  --color-neo-teal: #50E3C2;
+  --color-neo-coral: #FF7D5D;
+  
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+}
+
+:root {
+  --background: #FFFDF5;
+  --foreground: #000000;
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-jakarta);
+    background-image: linear-gradient(#e5e7eb 1px, transparent 1px), 
+                      linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+@layer utilities {
+  .neo-shadow {
+    box-shadow: 5px 5px 0px 0px #000000;
+  }
+  .neo-shadow-hover:hover {
+    box-shadow: 2px 2px 0px 0px #000000;
+    transform: translate(3px, 3px);
+  }
+  .neo-shadow-sm {
+    box-shadow: 3px 3px 0px 0px #000000;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

@@ -19,6 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/digitalmentor.png" />
+      </head>
       <body className={`${jakarta.variable} antialiased`}>
         {children}
       </body>

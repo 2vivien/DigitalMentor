@@ -58,16 +58,16 @@ export function Hero() {
           className="inline-flex items-center gap-2 bg-neo-yellow border-2 border-black px-4 py-1.5 rounded-full mb-8 neo-shadow-sm"
         >
           <Zap className="w-4 h-4 fill-black" />
-          <span className="text-sm font-semibold tracking-tight uppercase">New Team Blocks Added!</span>
+          <span className="text-sm font-semibold tracking-tight uppercase">Nouveaux modules IA disponibles !</span>
         </motion.div>
         
         <h1 className="sm:text-6xl md:text-7xl leading-[1.1] text-5xl font-semibold tracking-tight mb-6">
-          Not Every Website Has To <br />
+          Tu as ta place dans le <br /> futur digital. <br />
           <span 
             className="inline-block italic mt-4 text-black"
             style={{ textShadow: '4px 4px 0px #FFDE00' }}
           >
-            Look The Same!
+            Digital Mentor t'y conduit !
           </span>
         </h1>
         
@@ -75,10 +75,10 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="sm:text-2xl leading-relaxed text-xl text-gray-600 max-w-2xl mx-auto mb-10"
+          className="sm:text-2xl leading-relaxed text-xl text-gray-600 max-w-3xl mx-auto mb-10 font-medium"
         >
-          Get access to neo brutalist style React UI blocks, templates, and Figma kit. Designed to help you{" "}
-          <span className="text-black font-semibold border-b-4 border-neo-yellow pb-1">stand out</span>.
+          Plateforme de mentorat en technologies modernes et cabinet de conseil en intégration de l'IA pour les entreprises. <br className="hidden md:block" />
+          Nous transformons vos idées en compétences et vos compétences en <span className="text-black font-semibold border-b-4 border-neo-yellow pb-1">opportunités réelles</span>.
         </motion.p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

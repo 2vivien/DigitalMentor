@@ -19,8 +19,12 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
           <div className="max-w-sm">
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center text-neo-yellow">
-                <Zap className="w-4 h-4" />
+              <div className="w-10 h-10 relative">
+                <img 
+                  src="/digitalmentor.png" 
+                  alt="DigitalMentor Logo" 
+                  className="w-full h-full object-contain" 
+                />
               </div>
               <span 
                 className="text-2xl font-bold tracking-tight text-black"
@@ -50,10 +54,10 @@ export function Footer() {
             <div className="min-w-max">
               <h4 className="font-bold text-lg mb-4 uppercase tracking-tighter">Quick Links</h4>
               <ul className="space-y-3 text-lg text-gray-600 font-medium">
-                <li><a href="#" className="hover:text-black hover:underline">UI Blocks</a></li>
-                <li><a href="#" className="hover:text-black hover:underline">Templates</a></li>
-                <li><a href="#" className="hover:text-black hover:underline">Roadmap</a></li>
-                <li><a href="#" className="hover:text-black hover:underline">Affiliate</a></li>
+                <li><a href="/" className="hover:text-black hover:underline">Accueil</a></li>
+                <li><a href="/blog" className="hover:text-black hover:underline">Blog</a></li>
+                <li><a href="/entreprises" className="hover:text-black hover:underline">Entreprises & IA</a></li>
+                <li><a href="#" className="hover:text-black hover:underline">Formations</a></li>
               </ul>
             </div>
 
@@ -79,8 +83,8 @@ export function Footer() {
         </div>
 
         <div className="border-t-2 border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 font-medium">© 2024 RetroUI. Made with <span className="text-red-500">♥</span> for designers.</p>
-          <p className="text-gray-500 font-medium">A project by <a href="#" className="text-black font-bold underline">@retro_labs</a></p>
+          <p className="text-gray-500 font-medium">© 2026 DigitalMentor. Tous droits réservés.</p>
+          <p className="text-gray-500 font-medium">Propulsé par <a href="#" className="text-black font-bold underline">DigitalMentor Team</a></p>
         </div>
       </div>
     </footer>

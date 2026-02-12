@@ -26,7 +26,7 @@ const expertises = [
     badge: "Impact", 
     color: "bg-blue-600", 
     text: "GROWTH",
-    description: "Stratégies d'acquisition et conversion pour dominer votre marché."
+    description: "Stratégies d&apos;acquisition et conversion pour dominer votre marché."
   },
   { 
     title: "SaaS & No-Code", 

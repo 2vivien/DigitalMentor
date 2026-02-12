@@ -115,7 +115,7 @@ export default function EntreprisesPage() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold uppercase mb-2">Culture de l'Innovation</h4>
-                    <p className="text-lg font-medium opacity-90">Nous accompagnons vos équipes dans le changement pour instaurer une culture d'innovation continue.</p>
+                    <p className="text-lg font-medium opacity-90">Nous accompagnons vos équipes dans le changement pour instaurer une culture d&apos;innovation continue.</p>
                   </div>
                 </div>
                 <div className="flex gap-6">
@@ -132,7 +132,7 @@ export default function EntreprisesPage() {
 
             <div className="bg-white border-4 border-black p-10 rounded-3xl shadow-[10px_10px_0px_0px_#000000]">
               <blockquote className="text-3xl font-bold italic leading-tight mb-8">
-                "L'intelligence digitale n'est plus une option, c'est le moteur de la croissance moderne. Nous sommes là pour être votre copilote."
+                "L'intelligence digitale n&apos;est plus une option, c&apos;est le moteur de la croissance moderne. Nous sommes là pour être votre copilote."
               </blockquote>
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 bg-neo-yellow border-2 border-black rounded-full overflow-hidden">

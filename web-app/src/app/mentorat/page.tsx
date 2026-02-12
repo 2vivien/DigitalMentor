@@ -20,7 +20,7 @@ const formations = [
     {
         id: 1,
         categoryId: "ia",
-        title: "Maîtrise de l'IA Générative",
+        title: "Maîtrise de l&apos;IA Générative",
         mentor: "Ronald Richards",
         description: "Apprenez à construire des agents IA autonomes et à automatiser vos processus métier.",
         tags: ["No-code", "Python", "GPT-4"],
@@ -58,7 +58,7 @@ const formations = [
         categoryId: "business",
         title: "Growth & Acquisition Digitale",
         mentor: "Darrell Steward",
-        description: "Les stratégies avancées pour scaler n'importe quel business en ligne.",
+        description: "Les stratégies avancées pour scaler n&apos;importe quel business en ligne.",
         tags: ["SEO", "Ads", "Content"],
         rating: "5.0",
         students: "1,500",

@@ -45,7 +45,7 @@ export function DiscordCommunity() {
                   <div className="bg-neo-pink p-2 border-2 border-black rounded-lg">
                     <Users className="w-6 h-6 text-black" />
                   </div>
-                  <span className="font-bold text-lg">Networking d'Élite</span>
+                  <span className="font-bold text-lg">Networking d&apos;Élite</span>
                 </div>
               </div>
               
@@ -72,7 +72,7 @@ export function DiscordCommunity() {
                     <div className="flex gap-3">
                       <div className="w-10 h-10 bg-neo-teal border-2 border-black rounded-full flex-shrink-0" />
                       <div className="bg-gray-100 p-3 rounded-xl border-2 border-black text-sm font-medium">
-                        "Est-ce que quelqu'un a testé l'API de GPT-4o pour automatiser..."
+                        "Est-ce que quelqu&apos;un a testé l'API de GPT-4o pour automatiser..."
                       </div>
                     </div>
                     <div className="flex gap-3 justify-end">
@@ -84,7 +84,7 @@ export function DiscordCommunity() {
                     <div className="flex gap-3">
                       <div className="w-10 h-10 bg-neo-coral border-2 border-black rounded-full flex-shrink-0" />
                       <div className="bg-gray-100 p-3 rounded-xl border-2 border-black text-sm font-medium">
-                        "Merci ! C'est ce genre d'entraide qui fait la différence ici."
+                        "Merci ! C'est ce genre d&apos;entraide qui fait la différence ici."
                       </div>
                     </div>
                   </div>

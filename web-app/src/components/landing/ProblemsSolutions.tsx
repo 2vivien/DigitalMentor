@@ -7,7 +7,7 @@ export function ProblemsSolutions() {
   const problems = [
     {
       title: "Formations en ligne inefficaces",
-      description: "Tu as acheté des formations qui promettaient monts et merveilles, mais tu n'as rien appris de concret."
+      description: "Tu as acheté des formations qui promettaient monts et merveilles, mais tu n&apos;as rien appris de concret."
     },
     {
       title: "Temps perdu sur les réseaux",

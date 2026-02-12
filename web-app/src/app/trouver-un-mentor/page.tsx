@@ -45,7 +45,7 @@ const mentors = [
     seed: "George",
     description: "Expert en intégration d'IA générative et automatisation de processus métier complexes.",
     color: "bg-neo-yellow",
-    details: "Expert certifié avec 10 ans d'expérience dans l'automatisation industrielle et logicielle."
+    details: "Expert certifié avec 10 ans d&apos;expérience dans l'automatisation industrielle et logicielle."
   },
   {
     id: 2,
@@ -67,7 +67,7 @@ const mentors = [
     rating: "4.8",
     students: "920",
     seed: "Zoey",
-    description: "Créatrice d'expériences mémorables et de systèmes de design pour produits digitaux.",
+    description: "Créatrice d&apos;expériences mémorables et de systèmes de design pour produits digitaux.",
     color: "bg-neo-pink",
     details: "Ancienne Lead Design dans une licorne tech. Spécialiste Figma et Design Ops."
   },
@@ -314,7 +314,7 @@ export default function TrouverMentorPage() {
 
       {/* Grid Expertise (Filters) */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-black uppercase mb-16 text-center">Choisis ton domaine d'excellence</h2>
+        <h2 className="text-4xl font-black uppercase mb-16 text-center">Choisis ton domaine d&apos;excellence</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {expertises.map((exp) => (
             <motion.div
@@ -415,7 +415,7 @@ export default function TrouverMentorPage() {
                         <textarea 
                           required
                           rows={3}
-                          placeholder="Ex: Je souhaite automatiser mon acquisition client avec l'IA..."
+                          placeholder="Ex: Je souhaite automatiser mon acquisition client avec l&apos;IA..."
                           className="w-full border-2 border-black rounded-xl p-3.5 font-bold focus:outline-none focus:ring-2 focus:ring-neo-yellow bg-gray-50 shadow-[3px_3px_0px_0px_#000]"
                         ></textarea>
                       </div>

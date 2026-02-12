@@ -55,7 +55,7 @@ export function BlogCard({ title, excerpt, category, date, author, image, color 
           href="#" 
           className="inline-flex items-center gap-2 font-bold text-lg bg-neo-yellow border-2 border-black px-4 py-2 rounded-lg neo-shadow-sm hover:translate-x-1 transition-transform"
         >
-          Lire l'article
+          Lire l&apos;article
           <ArrowRight className="w-5 h-5" />
         </Link>
       </div>

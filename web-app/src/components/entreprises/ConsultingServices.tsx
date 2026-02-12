@@ -8,7 +8,7 @@ const services = [
   {
     icon: Brain,
     title: "Cabinet de Consulting en IA",
-    description: "Élaboration de stratégies sur mesure pour intégrer l'intelligence artificielle au cœur de votre modèle d'affaires.",
+    description: "Élaboration de stratégies sur mesure pour intégrer l&apos;intelligence artificielle au cœur de votre modèle d&apos;affaires.",
     color: "bg-neo-yellow",
     shadow: "shadow-[6px_6px_0px_0px_#000000]"
   },
@@ -51,7 +51,7 @@ export function ConsultingServices() {
             Notre Expertise <br /> <span className="text-gray-500">au service de votre croissance</span>
           </h2>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto font-medium">
-            Nous transformons les entreprises traditionnelles en organisations agiles, automatisées et propulsées par l'intelligence digitale.
+            Nous transformons les entreprises traditionnelles en organisations agiles, automatisées et propulsées par l&apos;intelligence digitale.
           </p>
         </div>
 
@@ -86,7 +86,7 @@ export function ConsultingServices() {
           <div className="border-2 border-black rounded-2xl p-8 bg-black text-white flex flex-col justify-center items-center text-center shadow-[6px_6px_0px_0px_#FFDE00]">
             <h3 className="text-3xl font-bold mb-4 italic">Prêt à passer au niveau supérieur ?</h3>
             <p className="mb-8 font-medium opacity-80 text-lg">
-              Discutons de vos besoins spécifiques lors d'un audit gratuit.
+              Discutons de vos besoins spécifiques lors d&apos;un audit gratuit.
             </p>
             <motion.button 
               whileHover={{ scale: 1.05 }}

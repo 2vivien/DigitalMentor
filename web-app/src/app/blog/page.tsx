@@ -8,7 +8,7 @@ import { Search } from "lucide-react";
 
 const posts = [
   {
-    title: "Comment l'IA transforme le mentorat en 2026",
+    title: "Comment l&apos;IA transforme le mentorat en 2026",
     excerpt: "Découvrez comment les nouveaux outils d'intelligence artificielle permettent un accompagnement plus personnalisé et efficace que jamais.",
     category: "IA & Futur",
     date: "12 Fév 2026",
@@ -53,7 +53,7 @@ const posts = [
     color: "bg-neo-pink"
   },
   {
-    title: "Sécurité des données à l'ère de l'IA générative",
+    title: "Sécurité des données à l&apos;ère de l&apos;IA générative",
     excerpt: "Comment protéger vos informations et celles de vos clients tout en utilisant les outils d'IA les plus performants.",
     category: "Sécurité",
     date: "30 Jan 2026",
@@ -121,7 +121,7 @@ export default function BlogPage() {
               whileTap={{ scale: 0.95 }}
               className="text-2xl font-bold bg-white border-2 border-black px-10 py-4 rounded-xl neo-shadow hover:neo-shadow-hover transition-all uppercase"
             >
-              Charger plus d'articles
+              Charger plus d&apos;articles
             </motion.button>
           </div>
         </div>

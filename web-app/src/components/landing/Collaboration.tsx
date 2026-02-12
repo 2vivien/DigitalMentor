@@ -69,7 +69,7 @@ export function Collaboration() {
               <h4 className="text-3xl md:text-4xl font-black uppercase mb-6 leading-tight">Pôle Entreprise & <br /> Consulting</h4>
               <p className="text-lg md:text-xl font-bold opacity-80 mb-10 leading-relaxed">
                 Les entreprises deviennent nos partenaires privilégiés. Profitez de formations sur-mesure,
-                d'audits et d'un accompagnement IA pour transformer vos talents.
+                d&apos;audits et d&apos;un accompagnement IA pour transformer vos talents.
               </p>
               <button className="text-lg font-black uppercase underline decoration-4 underline-offset-8 hover:text-neo-pink transition-colors">
                 Devenir Partenaire
@@ -86,10 +86,10 @@ export function Collaboration() {
               <div className="w-16 h-16 bg-white border-2 border-black rounded-2xl flex items-center justify-center mb-8 shadow-[4px_4px_0px_0px_#000]">
                 <Users className="w-8 h-8" />
               </div>
-              <h4 className="text-3xl md:text-4xl font-black uppercase mb-6 leading-tight">Rejoindre en <br /> tant qu'Expert</h4>
+              <h4 className="text-3xl md:text-4xl font-black uppercase mb-6 leading-tight">Rejoindre en <br /> tant qu&apos;Expert</h4>
               <p className="text-lg md:text-xl font-bold opacity-80 mb-10 leading-relaxed">
                 Partagez votre expertise avec des talents motivés, développez votre réseau
-                et participez à des projets d'accompagnement exclusifs.
+                et participez à des projets d&apos;accompagnement exclusifs.
               </p>
               <button className="text-lg font-black uppercase underline decoration-4 underline-offset-8 hover:text-white transition-colors">
                 Postuler maintenant

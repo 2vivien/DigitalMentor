@@ -74,7 +74,7 @@ export default function AuthPage() {
               transition={{ duration: 0.2 }}
             >
               <h2 className="text-3xl font-black uppercase mb-6 tracking-tight">
-                {isLogin ? "Ravi de vous revoir !" : "Rejoignez l'aventure !"}
+                {isLogin ? "Ravi de vous revoir !" : "Rejoignez l&apos;aventure !"}
               </h2>
 
               <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
@@ -166,7 +166,7 @@ export default function AuthPage() {
       </div>
 
       <p className="mt-8 text-sm font-bold text-gray-600 text-center max-w-xs">
-        En vous connectant, vous acceptez nos <button className="underline">Conditions d'utilisation</button> et notre <button className="underline">Politique de confidentialité</button>.
+        En vous connectant, vous acceptez nos <button className="underline">Conditions d&apos;utilisation</button> et notre <button className="underline">Politique de confidentialité</button>.
       </p>
     </main>
   );

@@ -7,13 +7,13 @@ const testimonials = [
   { 
     name: "Jean-Baptiste", 
     role: "Débutant Absolu", 
-    quote: "Je ne connaissais rien au digital. Grâce au mentorat, j'ai transformé mon temps d'écran en vraies compétences techniques. Un changement de vie radical !", 
+    quote: "Je ne connaissais rien au digital. Grâce au mentorat, j&apos;ai transformé mon temps d&apos;écran en vraies compétences techniques. Un changement de vie radical !", 
     seed: "Felix" 
   },
   { 
     name: "Sarah L.", 
     role: "Développeuse Full-Stack", 
-    quote: "Le niveau d'expertise technique ici est impressionnant. J'ai enfin pu maîtriser l'intégration poussée de l'IA dans mes applications scalables. On apprend à réfléchir comme des ingénieurs, pas juste à copier du code.", 
+    quote: "Le niveau d&apos;expertise technique ici est impressionnant. J'ai enfin pu maîtriser l'intégration poussée de l&apos;IA dans mes applications scalables. On apprend à réfléchir comme des ingénieurs, pas juste à copier du code.", 
     seed: "Aneka" 
   },
   { 
@@ -37,7 +37,7 @@ const testimonials = [
   { 
     name: "Thomas G.", 
     role: "Développeur Software", 
-    quote: "Au-delà des cours, c'est le mentorat personnalisé qui fait la différence.", 
+    quote: "Au-delà des cours, c&apos;est le mentorat personnalisé qui fait la différence.", 
     seed: "Aneka2" 
   },
 ];

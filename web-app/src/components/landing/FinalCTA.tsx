@@ -19,7 +19,7 @@ export function FinalCTA() {
           </span>
         </h2>
         <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto font-medium">
-          Que vous soyez un talent en quête de mentorat ou une entreprise prête pour l'IA, nous avons les solutions pour vous faire réussir.
+          Que vous soyez un talent en quête de mentorat ou une entreprise prête pour l&apos;IA, nous avons les solutions pour vous faire réussir.
         </p>
         <motion.button 
           whileHover={{ scale: 1.05 }}

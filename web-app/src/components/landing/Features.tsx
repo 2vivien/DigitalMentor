@@ -7,7 +7,7 @@ const features = [
   {
     icon: Cpu,
     title: "Formation IA & Tech",
-    description: "Apprenez à maîtriser l'IA, le No-Code, le SaaS et le Marketing Digital avec une approche 100% pratique.",
+    description: "Apprenez à maîtriser l&apos;IA, le No-Code, le SaaS et le Marketing Digital avec une approche 100% pratique.",
     color: "bg-[#FFFDF5]",
     iconBg: "bg-neo-pink",
   },
@@ -21,7 +21,7 @@ const features = [
   {
     icon: Building2,
     title: "Consulting Entreprise",
-    description: "Nous aidons les entreprises à intégrer l'IA pour automatiser leurs processus et booster leur productivité.",
+    description: "Nous aidons les entreprises à intégrer l&apos;IA pour automatiser leurs processus et booster leur productivité.",
     color: "bg-white",
     iconBg: "bg-neo-coral",
   },

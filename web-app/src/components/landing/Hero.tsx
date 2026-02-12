@@ -67,7 +67,7 @@ export function Hero() {
             className="inline-block italic mt-4 text-black"
             style={{ textShadow: '4px 4px 0px #FFDE00' }}
           >
-            Digital Mentor t'y conduit !
+            Digital Mentor t&apos;y conduit !
           </span>
         </h1>
         
@@ -77,7 +77,7 @@ export function Hero() {
           transition={{ delay: 0.2 }}
           className="sm:text-2xl leading-relaxed text-xl text-gray-600 max-w-3xl mx-auto mb-10 font-medium"
         >
-          Plateforme de mentorat en technologies modernes et cabinet de conseil en intégration de l'IA pour les entreprises. <br className="hidden md:block" />
+          Plateforme de mentorat en technologies modernes et cabinet de conseil en intégration de l&apos;IA pour les entreprises. <br className="hidden md:block" />
           Nous transformons vos idées en compétences et vos compétences en <span className="text-black font-semibold border-b-4 border-neo-yellow pb-1">opportunités réelles</span>.
         </motion.p>
         

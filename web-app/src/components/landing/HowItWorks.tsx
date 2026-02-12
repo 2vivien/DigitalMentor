@@ -7,7 +7,7 @@ const profiles = [
   { 
     id: 1, 
     title: "Le Débutant Absolu", 
-    description: "Tu ne connais rien au digital ? Transforme ton temps d'écran en opportunités réelles et cherche un nouveau départ.",
+    description: "Tu ne connais rien au digital ? Transforme ton temps d&apos;écran en opportunités réelles et cherche un nouveau départ.",
     cta: "Je veux changer ma vie"
   },
   { 

@@ -10,6 +10,7 @@ import { Showcase } from "@/components/landing/Showcase";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { DiscordCommunity } from "@/components/landing/DiscordCommunity";
 import { Testimonials } from "@/components/landing/Testimonials";
+import { Collaboration } from "@/components/landing/Collaboration";
 import { FinalCTA } from "@/components/landing/FinalCTA";
 import { Footer } from "@/components/landing/Footer";
 
@@ -28,6 +29,7 @@ export default function Home() {
       <Mentors />
       <DiscordCommunity />
       <Testimonials />
+      <Collaboration />
       <FinalCTA />
       <Footer />
     </main>

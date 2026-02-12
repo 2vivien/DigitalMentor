@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { ConsultingServices } from "@/components/entreprises/ConsultingServices";
+import { Collaboration } from "@/components/landing/Collaboration";
 import { motion } from "framer-motion";
 import { Zap, Target, TrendingUp, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -150,6 +151,8 @@ export default function EntreprisesPage() {
           </div>
         </div>
       </section>
+
+      <Collaboration />
 
       {/* Final CTA */}
       <section className="py-24 bg-white">

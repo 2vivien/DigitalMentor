@@ -28,7 +28,7 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-8 text-lg font-medium">
           {[
             { label: "Mentorat", href: "/mentorat" },
-            { label: "Trouver un mentor", href: "#why-us" },
+            { label: "Trouver un mentor", href: "/trouver-un-mentor" },
             { label: "Entreprise & Consulting IA", href: "/entreprises" },
             { label: "Blog", href: "/blog" }
           ].map((item) => (

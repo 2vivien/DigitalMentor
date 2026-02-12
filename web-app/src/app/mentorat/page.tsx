@@ -4,6 +4,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
+import { Collaboration } from "@/components/landing/Collaboration";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, ExternalLink, Brain, Palette, Code2, TrendingUp, ArrowRight, Database } from "lucide-react";
 
@@ -230,6 +231,7 @@ export default function MentoratPage() {
                 </div>
             </div>
 
+            <Collaboration />
             <Footer />
         </main>
     );

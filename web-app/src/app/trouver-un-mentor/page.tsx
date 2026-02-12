@@ -229,6 +229,7 @@ export default function TrouverMentorPage() {
                       alt={mentor.name}
                       width={200}
                       height={200}
+                      unoptimized
                       className="relative z-10 w-full h-full rounded-2xl border-2 border-black bg-white object-cover"
                     />
                   </div>
@@ -501,14 +502,14 @@ export default function TrouverMentorPage() {
               <div className="flex flex-col md:flex-row h-full">
                                 <div className={cn("w-full md:w-2/5 p-8 flex flex-col items-center justify-center border-b-4 md:border-b-0 md:border-r-4 border-black", selectedMentor.color)}>
                                   <div className="w-48 h-48 rounded-3xl border-4 border-black bg-white overflow-hidden mb-6 shadow-[8px_8px_0px_0px_#000]">
-                                    <Image 
-                                      src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${selectedMentor.seed}`} 
-                                      alt={selectedMentor.name}
-                                      width={192}
-                                      height={192}
-                                      className="w-full h-full object-cover"
-                                    />
-                                  </div>                  <h3 className="text-3xl font-black uppercase text-center leading-tight mb-2">{selectedMentor.name}</h3>
+                                                        <Image 
+                                                          src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${selectedMentor.seed}`} 
+                                                          alt={selectedMentor.name}
+                                                          width={192}
+                                                          height={192}
+                                                          unoptimized
+                                                          className="w-full h-full object-cover"
+                                                        />                                  </div>                  <h3 className="text-3xl font-black uppercase text-center leading-tight mb-2">{selectedMentor.name}</h3>
                   <div className="flex items-center gap-1 bg-white border-2 border-black px-3 py-1 rounded-full mb-4">
                     <Star className="w-4 h-4 fill-neo-yellow text-black" />
                     <span className="font-black text-sm">{selectedMentor.rating}</span>

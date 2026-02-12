@@ -55,6 +55,7 @@ export function Mentors() {
                                     alt={mentor.name}
                                     width={128}
                                     height={128}
+                                    unoptimized
                                     className="relative z-10 w-full h-full rounded-full border-2 border-black bg-white"
                                 />
                             </div>

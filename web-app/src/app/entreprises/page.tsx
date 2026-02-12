@@ -139,9 +139,10 @@ export default function EntreprisesPage() {
                 <div className="w-16 h-16 bg-neo-yellow border-2 border-black rounded-full overflow-hidden">
                   <Image
                     src="https://api.dicebear.com/7.x/avataaars/svg?seed=Eurin"
-                    alt="Eurin D'ALMEIDA"
+                    alt="Eurin D&apos;ALMEIDA"
                     width={64}
                     height={64}
+                    unoptimized
                     className="w-full h-full object-cover bg-white"
                   />
                 </div>

@@ -144,7 +144,7 @@ export default function AuthPage() {
                   whileTap={{ scale: 0.95 }}
                   className="flex items-center justify-center gap-2 border-2 border-black p-3 rounded-xl font-bold hover:bg-gray-50 transition-colors shadow-[3px_3px_0px_0px_#000]"
                 >
-                  <Image src="https://www.google.com/favicon.ico" width={20} height={20} alt="Google" />
+                  <Image src="https://www.google.com/favicon.ico" width={20} height={20} unoptimized alt="Google" />
                   Google
                 </motion.button>
                 <motion.button 

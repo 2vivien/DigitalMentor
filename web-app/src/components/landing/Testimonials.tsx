@@ -62,7 +62,7 @@ export function Testimonials() {
                 <p className="text-lg text-gray-800 font-medium mb-6 leading-relaxed">&quot;{t.quote}&quot;</p>
               </div>
               <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                <Image src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${t.seed}`} alt={t.name} width={40} height={40} className="w-10 h-10 bg-gray-300 rounded-full border-2 border-black" />
+                <Image src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${t.seed}`} alt={t.name} width={40} height={40} unoptimized className="w-10 h-10 bg-gray-300 rounded-full border-2 border-black" />
                 <div>
                   <div className="font-bold text-sm">{t.name}</div>
                   <div className="text-xs text-gray-500 font-medium">{t.role}</div>

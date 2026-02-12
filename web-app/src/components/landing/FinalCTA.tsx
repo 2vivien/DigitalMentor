@@ -10,9 +10,11 @@ export function FinalCTA() {
         
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight mb-6">
           Unlock Access to All <br />
-          <span className="inline-block relative z-10">
+          <span 
+            className="inline-block italic mt-4 text-black"
+            style={{ textShadow: '3px 3px 0px #FFDE00' }}
+          >
             Components & Templates
-            <div className="absolute bottom-2 left-0 w-full h-4 bg-neo-yellow -z-10 opacity-60" />
           </span>
         </h2>
         <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
@@ -20,7 +22,7 @@ export function FinalCTA() {
         </p>
         <button className="text-xl font-bold bg-black text-white border-2 border-black px-10 py-4 rounded-lg shadow-[5px_5px_0px_0px_#FFDE00] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#FFDE00] transition-all flex items-center justify-center gap-2 mx-auto">
           Get Unlimited Access
-          <ArrowRight className="w-6 h-6" />
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right w-6 h-6"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </button>
       </div>
     </section>

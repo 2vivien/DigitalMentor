@@ -8,20 +8,21 @@ const features = [
     icon: LayoutTemplate,
     title: "UI Blocks",
     description: "Get 100+ unique UI blocks that you can just copy & paste into your project.",
-    color: "bg-neo-pink",
+    color: "bg-[#FFFDF5]",
+    iconBg: "bg-neo-pink",
   },
   {
     icon: Monitor,
     title: "Templates",
     description: "Bold, unique & responsive website templates, built with React & Next.js.",
-    color: "bg-neo-mint",
+    color: "bg-white",
     iconBg: "bg-neo-teal",
   },
   {
     icon: Figma,
     title: "Figma Kit",
     description: "Love to customize? Get access to Figma versions of our components.",
-    color: "bg-background",
+    color: "bg-white",
     iconBg: "bg-neo-coral",
   },
 ];
@@ -35,18 +36,19 @@ export function Features() {
             <div 
               key={index}
               className={cn(
-                "border-2 border-black rounded-xl p-8 neo-shadow hover:translate-y-[-4px] transition-transform duration-300",
+                "border-2 border-black rounded-xl p-8 hover:translate-y-[-4px] transition-transform duration-300 cursor-default",
                 feature.color
               )}
+              style={{ boxShadow: '5px 5px 0px 0px #FFDE00' }}
             >
               <div className={cn(
                 "w-14 h-14 border-2 border-black rounded-lg flex items-center justify-center mb-6",
-                feature.iconBg || "bg-neo-pink"
+                feature.iconBg
               )}>
                 <feature.icon className="w-7 h-7 text-black" strokeWidth={1.5} />
               </div>
-              <h3 className="text-2xl font-semibold tracking-tight mb-3">{feature.title}</h3>
-              <p className="text-lg text-gray-600 leading-relaxed">{feature.description}</p>
+              <h3 className="text-2xl font-bold tracking-tight mb-3 uppercase">{feature.title}</h3>
+              <p className="text-lg text-gray-700 font-medium leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>

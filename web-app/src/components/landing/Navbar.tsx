@@ -25,7 +25,7 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <button className="hidden sm:block text-lg font-medium border-2 border-black px-4 py-1.5 rounded-lg hover:bg-gray-100 transition-colors">
+          <button className="hidden sm:block text-lg font-medium border-2 border-black px-4 py-1.5 rounded-lg neo-shadow hover:neo-shadow-hover transition-all bg-white">
             Sign in
           </button>
           <button className="text-lg font-medium bg-neo-yellow border-2 border-black px-5 py-1.5 rounded-lg neo-shadow hover:neo-shadow-hover transition-all">

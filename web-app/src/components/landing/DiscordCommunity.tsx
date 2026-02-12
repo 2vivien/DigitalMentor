@@ -49,10 +49,14 @@ export function DiscordCommunity() {
                 </div>
               </div>
               
-              <button className="w-full sm:w-auto bg-white text-black text-2xl font-black px-10 py-5 rounded-2xl hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all shadow-[6px_6px_0px_0px_#000] flex items-center justify-center gap-3 uppercase">
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto bg-white text-black text-2xl font-black px-10 py-5 rounded-2xl hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all shadow-[6px_6px_0px_0px_#000] flex items-center justify-center gap-3 uppercase"
+              >
                 Rejoindre le Discord
                 <ArrowRight className="w-7 h-7" />
-              </button>
+              </motion.button>
             </div>
             
             <div className="flex-1 hidden lg:block">

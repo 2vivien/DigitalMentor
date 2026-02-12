@@ -1,6 +1,7 @@
 "use client";
 
 import { AlertTriangle, CheckCircle2, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function ProblemsSolutions() {
   const problems = [
@@ -92,10 +93,14 @@ export function ProblemsSolutions() {
 
             <div className="mt-10 space-y-4 text-center">
               <p className="text-xl font-black uppercase italic italic-neo">Prêt à transformer ta vie ?</p>
-              <button className="w-full bg-neo-yellow border-2 border-black py-4 rounded-xl font-black text-xl uppercase neo-shadow hover:neo-shadow-hover transition-all flex items-center justify-center gap-2">
+              <motion.button 
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-neo-yellow border-2 border-black py-4 rounded-xl font-black text-xl uppercase neo-shadow hover:neo-shadow-hover transition-all flex items-center justify-center gap-2"
+              >
                 Je commence ma transformation
                 <ArrowRight className="w-6 h-6" />
-              </button>
+              </motion.button>
               <p className="text-sm font-bold text-gray-600">
                 Rejoins les 5,000+ jeunes qui ont déjà pris leur avenir en main
               </p>

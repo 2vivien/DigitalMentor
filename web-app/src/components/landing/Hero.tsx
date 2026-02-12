@@ -82,14 +82,22 @@ export function Hero() {
         </motion.p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="w-full sm:w-auto text-xl font-semibold bg-neo-yellow border-2 border-black px-8 py-3 rounded-lg neo-shadow hover:neo-shadow-hover transition-all flex items-center justify-center gap-2">
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-full sm:w-auto text-xl font-semibold bg-neo-yellow border-2 border-black px-8 py-3 rounded-lg neo-shadow hover:neo-shadow-hover transition-all flex items-center justify-center gap-2"
+          >
             Access Now
             <ArrowRight className="w-5 h-5" strokeWidth={2} />
-          </button>
-          <button className="w-full sm:w-auto text-xl font-semibold bg-white border-2 border-black px-8 py-3 rounded-lg neo-shadow hover:neo-shadow-hover transition-all flex items-center justify-center gap-2">
+          </motion.button>
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-full sm:w-auto text-xl font-semibold bg-white border-2 border-black px-8 py-3 rounded-lg neo-shadow hover:neo-shadow-hover transition-all flex items-center justify-center gap-2"
+          >
             <PlayCircle className="w-5 h-5" strokeWidth={1.5} />
             View Demo
-          </button>
+          </motion.button>
         </div>
       </div>
     </section>

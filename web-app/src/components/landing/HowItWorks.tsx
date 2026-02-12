@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const profiles = [
   { 
@@ -41,9 +42,13 @@ export function HowItWorks() {
               <h3 className="text-2xl font-black tracking-tight mb-3 uppercase">{profile.title}</h3>
               <p className="text-lg text-gray-600 font-medium leading-relaxed mb-8 flex-grow">{profile.description}</p>
               
-              <button className="w-full text-lg font-semibold bg-white border-2 border-black px-4 py-2.5 rounded-lg neo-shadow hover:neo-shadow-hover transition-all text-black uppercase">
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full text-lg font-semibold bg-white border-2 border-black px-4 py-2.5 rounded-lg neo-shadow hover:neo-shadow-hover transition-all text-black uppercase"
+              >
                 {profile.cta}
-              </button>
+              </motion.button>
               
               {i < profiles.length - 1 && (
                 <div className="hidden md:block absolute top-1/2 -right-6 transform -translate-y-1/2 z-20 bg-white border-2 border-black rounded-full p-1">

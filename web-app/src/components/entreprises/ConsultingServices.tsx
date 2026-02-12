@@ -1,6 +1,7 @@
 "use client";
 
 import { Brain, Layers, GraduationCap, Zap, BarChart3, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const services = [
@@ -71,10 +72,13 @@ export function ConsultingServices() {
               <p className="text-lg text-gray-700 font-medium mb-8 flex-grow">
                 {service.description}
               </p>
-              <button className="flex items-center gap-2 font-bold group">
+              <motion.button 
+                whileHover={{ x: 5 }}
+                className="flex items-center gap-2 font-bold group"
+              >
                 En savoir plus 
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </motion.button>
             </div>
           ))}
           
@@ -84,9 +88,13 @@ export function ConsultingServices() {
             <p className="mb-8 font-medium opacity-80 text-lg">
               Discutons de vos besoins spécifiques lors d'un audit gratuit.
             </p>
-            <button className="bg-neo-yellow text-black border-2 border-black px-6 py-3 rounded-lg font-bold hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all shadow-[4px_4px_0px_0px_#ffffff]">
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-neo-yellow text-black border-2 border-black px-6 py-3 rounded-lg font-bold hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all shadow-[4px_4px_0px_0px_#ffffff]"
+            >
               Réserver un Audit
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>

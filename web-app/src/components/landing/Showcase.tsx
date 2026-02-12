@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const expertises = [
@@ -96,10 +97,14 @@ export function Showcase() {
       </div>
       
       <div className="text-center mt-8">
-        <button className="inline-flex items-center gap-2 bg-neo-yellow border-2 border-black px-8 py-3 rounded-lg font-bold text-xl neo-shadow hover:neo-shadow-hover transition-all">
+        <motion.button 
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center gap-2 bg-neo-yellow border-2 border-black px-8 py-3 rounded-lg font-bold text-xl neo-shadow hover:neo-shadow-hover transition-all"
+        >
           Découvrir tous les modules
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </button>
+        </motion.button>
       </div>
     </section>
   );

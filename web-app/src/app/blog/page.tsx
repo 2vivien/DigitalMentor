@@ -88,9 +88,13 @@ export default function BlogPage() {
               placeholder="Rechercher un article..." 
               className="w-full border-2 border-black rounded-xl px-6 py-4 text-xl font-medium focus:outline-none neo-shadow bg-white"
             />
-            <button className="absolute right-3 top-3 bg-black text-white p-2 rounded-lg">
+            <motion.button 
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="absolute right-3 top-3 bg-black text-white p-2 rounded-lg"
+            >
               <Search className="w-6 h-6" />
-            </button>
+            </motion.button>
           </div>
         </div>
       </section>
@@ -112,9 +116,13 @@ export default function BlogPage() {
           </div>
           
           <div className="mt-20 text-center">
-            <button className="text-2xl font-bold bg-white border-2 border-black px-10 py-4 rounded-xl neo-shadow hover:neo-shadow-hover transition-all uppercase">
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="text-2xl font-bold bg-white border-2 border-black px-10 py-4 rounded-xl neo-shadow hover:neo-shadow-hover transition-all uppercase"
+            >
               Charger plus d'articles
-            </button>
+            </motion.button>
           </div>
         </div>
       </section>

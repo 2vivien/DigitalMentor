@@ -11,44 +11,52 @@ export default function EntreprisesPage() {
   return (
     <main className="min-h-screen selection:bg-neo-yellow selection:text-black">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative pt-24 pb-20 overflow-hidden bg-neo-mint border-b-2 border-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="flex-1 text-center lg:text-left">
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="inline-flex items-center gap-2 bg-black text-white px-4 py-1.5 rounded-full mb-8"
+                initial={{ opacity: 0, y: 20, rotate: -5 }}
+                animate={{ opacity: 1, y: 0, rotate: -2 }}
+                className="inline-flex items-center gap-2 bg-neo-yellow border-2 border-black px-4 py-1.5 rounded-xl mb-8 shadow-[4px_4px_0px_0px_#000000]"
               >
-                <Zap className="w-4 h-4 text-neo-yellow fill-neo-yellow" />
-                <span className="text-sm font-bold uppercase tracking-wider">Pôle Entreprise & Consulting IA</span>
+                <Zap className="w-4 h-4 text-black fill-black" />
+                <span className="text-sm font-black uppercase tracking-wider">Pôle Entreprise & Consulting IA</span>
               </motion.div>
-              
+
               <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-8 uppercase">
-                Le partenaire de votre <br /> 
+                Le partenaire de votre <br />
                 <span className="bg-white border-2 border-black px-4 py-1 inline-block -rotate-1 shadow-[6px_6px_0px_0px_#000000]">
                   Intelligence
                 </span> <br /> Digitale.
               </h1>
-              
+
               <p className="text-xl md:text-2xl text-gray-800 font-medium max-w-2xl mb-10 leading-relaxed">
-                Nous accompagnons les organisations dans leur mutation technologique. 
-                De la formation des talents du futur à l'intégration de systèmes autonomes, 
+                Nous accompagnons les organisations dans leur mutation technologique.
+                De la formation des talents du futur à l'intégration de systèmes autonomes,
                 nous construisons ensemble votre avantage compétitif.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button className="text-xl font-bold bg-neo-yellow border-2 border-black px-8 py-4 rounded-xl neo-shadow hover:neo-shadow-hover transition-all uppercase">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-xl font-bold bg-neo-yellow border-2 border-black px-8 py-4 rounded-xl neo-shadow hover:neo-shadow-hover transition-all uppercase"
+                >
                   Parler à un consultant
-                </button>
-                <button className="text-xl font-bold bg-white border-2 border-black px-8 py-4 rounded-xl neo-shadow hover:neo-shadow-hover transition-all uppercase">
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-xl font-bold bg-white border-2 border-black px-8 py-4 rounded-xl neo-shadow hover:neo-shadow-hover transition-all uppercase"
+                >
                   Nos études de cas
-                </button>
+                </motion.button>
               </div>
             </div>
-            
+
             <div className="flex-1 relative">
               <motion.div
                 initial={{ rotate: 10, opacity: 0 }}
@@ -70,7 +78,7 @@ export default function EntreprisesPage() {
                   ))}
                 </div>
               </motion.div>
-              
+
               {/* Decorative elements */}
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-neo-coral border-2 border-black rounded-full -z-0" />
               <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-neo-yellow border-2 border-black rounded-lg rotate-12 -z-0" />
@@ -120,17 +128,17 @@ export default function EntreprisesPage() {
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-white border-4 border-black p-10 rounded-3xl shadow-[10px_10px_0px_0px_#000000]">
               <blockquote className="text-3xl font-bold italic leading-tight mb-8">
                 "L'intelligence digitale n'est plus une option, c'est le moteur de la croissance moderne. Nous sommes là pour être votre copilote."
               </blockquote>
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 bg-neo-yellow border-2 border-black rounded-full overflow-hidden">
-                  <img 
-                    src="https://api.dicebear.com/7.x/avataaars/svg?seed=Eurin" 
-                    alt="Eurin D'ALMEIDA" 
-                    className="w-full h-full object-cover bg-white" 
+                  <img
+                    src="https://api.dicebear.com/7.x/avataaars/svg?seed=Eurin"
+                    alt="Eurin D'ALMEIDA"
+                    className="w-full h-full object-cover bg-white"
                   />
                 </div>
                 <div>
@@ -153,9 +161,13 @@ export default function EntreprisesPage() {
             <p className="text-2xl font-bold mb-10 opacity-90">
               Automatisation, Intelligence, Croissance.
             </p>
-            <button className="bg-black text-white text-2xl font-bold px-12 py-5 rounded-2xl hover:scale-105 transition-transform shadow-[6px_6px_0px_0px_#FFDE00]">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-black text-white text-2xl font-bold px-12 py-5 rounded-2xl hover:scale-105 transition-transform shadow-[6px_6px_0px_0px_#FFDE00]"
+            >
               Contacter le Pôle Entreprise
-            </button>
+            </motion.button>
           </div>
         </div>
       </section>

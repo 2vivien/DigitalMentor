@@ -14,13 +14,15 @@ export default function AuthPage() {
   return (
     <main className="min-h-screen bg-[#FFFDF5] selection:bg-neo-yellow selection:text-black flex flex-col items-center justify-center p-4 relative overflow-hidden">
       {/* Bouton Retour */}
-      <button 
+      <motion.button 
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
         onClick={() => router.back()}
         className="absolute top-6 left-6 flex items-center gap-2 bg-white border-2 border-black px-4 py-2 rounded-lg font-bold neo-shadow hover:neo-shadow-hover transition-all z-50"
       >
         <ArrowLeft className="w-5 h-5" />
         <span className="hidden sm:inline">Retour</span>
-      </button>
+      </motion.button>
 
       {/* Éléments décoratifs en arrière-plan */}
       <div className="absolute top-10 left-10 w-32 h-32 bg-neo-pink border-2 border-black rounded-full opacity-20 -rotate-12 blur-xl" />
@@ -39,7 +41,8 @@ export default function AuthPage() {
       <div className="w-full max-w-md relative">
         {/* Toggle Switch */}
         <div className="flex border-2 border-black rounded-xl overflow-hidden mb-6 bg-white shadow-[4px_4px_0px_0px_#000]">
-          <button 
+          <motion.button 
+            whileTap={{ scale: 0.98 }}
             onClick={() => setIsLogin(true)}
             className={cn(
               "flex-1 py-3 font-bold uppercase transition-all",
@@ -47,8 +50,9 @@ export default function AuthPage() {
             )}
           >
             Connexion
-          </button>
-          <button 
+          </motion.button>
+          <motion.button 
+            whileTap={{ scale: 0.98 }}
             onClick={() => setIsLogin(false)}
             className={cn(
               "flex-1 py-3 font-bold uppercase transition-all",
@@ -56,7 +60,7 @@ export default function AuthPage() {
             )}
           >
             Inscription
-          </button>
+          </motion.button>
         </div>
 
         {/* Auth Card */}
@@ -117,10 +121,14 @@ export default function AuthPage() {
                   </div>
                 </div>
 
-                <button className="w-full bg-black text-white py-4 rounded-xl font-black text-xl uppercase mt-8 shadow-[4px_4px_0px_0px_#FFDE00] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center justify-center gap-2">
+                <motion.button 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full bg-black text-white py-4 rounded-xl font-black text-xl uppercase mt-8 shadow-[4px_4px_0px_0px_#FFDE00] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center justify-center gap-2"
+                >
                   {isLogin ? "Se connecter" : "Créer mon compte"}
                   <ArrowRight className="w-6 h-6" />
-                </button>
+                </motion.button>
               </form>
 
               <div className="mt-8 flex items-center gap-4">
@@ -130,14 +138,22 @@ export default function AuthPage() {
               </div>
 
               <div className="grid grid-cols-2 gap-4 mt-6">
-                <button className="flex items-center justify-center gap-2 border-2 border-black p-3 rounded-xl font-bold hover:bg-gray-50 transition-colors shadow-[3px_3px_0px_0px_#000]">
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center justify-center gap-2 border-2 border-black p-3 rounded-xl font-bold hover:bg-gray-50 transition-colors shadow-[3px_3px_0px_0px_#000]"
+                >
                   <img src="https://www.google.com/favicon.ico" className="w-5 h-5" alt="Google" />
                   Google
-                </button>
-                <button className="flex items-center justify-center gap-2 border-2 border-black p-3 rounded-xl font-bold hover:bg-gray-50 transition-colors shadow-[3px_3px_0px_0px_#000]">
+                </motion.button>
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center justify-center gap-2 border-2 border-black p-3 rounded-xl font-bold hover:bg-gray-50 transition-colors shadow-[3px_3px_0px_0px_#000]"
+                >
                   <Github className="w-5 h-5" />
                   GitHub
-                </button>
+                </motion.button>
               </div>
             </motion.div>
           </AnimatePresence>

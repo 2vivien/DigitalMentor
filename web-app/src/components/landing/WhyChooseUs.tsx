@@ -27,7 +27,7 @@ const reasons = [
 
 export function WhyChooseUs() {
     return (
-        <section className="py-24 bg-[#FFFDF5] border-t-2 border-black">
+        <section id="why-us" className="py-24 bg-[#FFFDF5] border-t-2 border-black">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-4xl font-black uppercase text-center mb-16 tracking-tighter">
                     Pourquoi choisir Digital Mentor ?

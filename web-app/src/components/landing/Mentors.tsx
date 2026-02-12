@@ -37,7 +37,7 @@ export function Mentors() {
     return (
         <section className="py-24 bg-[#FFFDF5] border-t-2 border-black">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-4xl font-black uppercase text-center mb-16 tracking-tighter">
+                <h2 className="text-4xl font-black uppercase text-center mb-16 tracking-tighter text-black">
                     Rencontrez nos mentors
                 </h2>
 
@@ -45,7 +45,7 @@ export function Mentors() {
                     {mentors.map((mentor, index) => (
                         <div
                             key={index}
-                            className="bg-white border-2 border-black rounded-2xl p-6 text-center hover:translate-y-[-4px] transition-all duration-300 shadow-[8px_8px_0px_0px_#000]"
+                            className="bg-white border-2 border-black rounded-2xl p-6 text-center hover:translate-y-[-4px] transition-all duration-300 shadow-[8px_8px_0px_0px_#000] text-black"
                         >
                             <div className="relative mb-6 mx-auto w-32 h-32">
                                 <div className="absolute inset-0 bg-neo-yellow rounded-full border-2 border-black -rotate-6"></div>

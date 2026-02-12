@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
+import Image from "next/image";
 import { Collaboration } from "@/components/landing/Collaboration";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
@@ -19,11 +20,7 @@ import {
   Sparkles,
   Star,
   ArrowRight,
-  ExternalLink,
-  ChevronRight,
   ShieldCheck,
-  Building2,
-  Users
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -85,10 +82,23 @@ const mentors = [
   }
 ];
 
+interface Mentor {
+  id: number;
+  name: string;
+  role: string;
+  expertiseId: string;
+  rating: string;
+  students: string;
+  seed: string;
+  description: string;
+  color: string;
+  details: string;
+}
+
 export default function TrouverMentorPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
-  const [selectedMentor, setSelectedMentor] = useState<any>(null);
+  const [selectedMentor, setSelectedMentor] = useState<Mentor | null>(null);
   const [formStep, setFormStep] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [activeFilter, setActiveFilter] = useState("all");
@@ -98,7 +108,7 @@ export default function TrouverMentorPage() {
     if (!isModalOpen) setFormStep(1);
   };
 
-  const openDetails = (mentor: any) => {
+  const openDetails = (mentor: Mentor) => {
     setSelectedMentor(mentor);
     setIsDetailsOpen(true);
   };
@@ -214,9 +224,11 @@ export default function TrouverMentorPage() {
                 >
                   <div className="relative mb-6 mx-auto w-full aspect-square">
                     <div className={cn("absolute inset-0 rounded-2xl border-2 border-black -rotate-3 transition-transform group-hover:rotate-0", mentor.color)}></div>
-                    <img
+                    <Image
                       src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${mentor.seed}`}
                       alt={mentor.name}
+                      width={200}
+                      height={200}
                       className="relative z-10 w-full h-full rounded-2xl border-2 border-black bg-white object-cover"
                     />
                   </div>
@@ -227,7 +239,7 @@ export default function TrouverMentorPage() {
                       {mentor.role}
                     </p>
                     <p className="text-gray-600 font-medium text-sm mb-6 line-clamp-2 italic">
-                      "{mentor.description}"
+                      &quot;{mentor.description}&quot;
                     </p>
                   </div>
 
@@ -487,15 +499,16 @@ export default function TrouverMentorPage() {
               </button>
 
               <div className="flex flex-col md:flex-row h-full">
-                <div className={cn("w-full md:w-2/5 p-8 flex flex-col items-center justify-center border-b-4 md:border-b-0 md:border-r-4 border-black", selectedMentor.color)}>
-                  <div className="w-48 h-48 rounded-3xl border-4 border-black bg-white overflow-hidden mb-6 shadow-[8px_8px_0px_0px_#000]">
-                    <img 
-                      src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${selectedMentor.seed}`} 
-                      alt={selectedMentor.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h3 className="text-3xl font-black uppercase text-center leading-tight mb-2">{selectedMentor.name}</h3>
+                                <div className={cn("w-full md:w-2/5 p-8 flex flex-col items-center justify-center border-b-4 md:border-b-0 md:border-r-4 border-black", selectedMentor.color)}>
+                                  <div className="w-48 h-48 rounded-3xl border-4 border-black bg-white overflow-hidden mb-6 shadow-[8px_8px_0px_0px_#000]">
+                                    <Image 
+                                      src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${selectedMentor.seed}`} 
+                                      alt={selectedMentor.name}
+                                      width={192}
+                                      height={192}
+                                      className="w-full h-full object-cover"
+                                    />
+                                  </div>                  <h3 className="text-3xl font-black uppercase text-center leading-tight mb-2">{selectedMentor.name}</h3>
                   <div className="flex items-center gap-1 bg-white border-2 border-black px-3 py-1 rounded-full mb-4">
                     <Star className="w-4 h-4 fill-neo-yellow text-black" />
                     <span className="font-black text-sm">{selectedMentor.rating}</span>
@@ -510,7 +523,7 @@ export default function TrouverMentorPage() {
 
                   <div>
                     <h4 className="text-sm font-black uppercase text-gray-400 mb-2">À propos</h4>
-                    <p className="text-xl font-bold text-gray-800 leading-relaxed italic">"{selectedMentor.description}"</p>
+                    <p className="text-xl font-bold text-gray-800 leading-relaxed italic">&quot;{selectedMentor.description}&quot;</p>
                   </div>
 
                   <div className="bg-white border-2 border-black p-6 rounded-2xl shadow-[6px_6px_0px_0px_#000]">

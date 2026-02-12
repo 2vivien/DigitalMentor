@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, Mail, Lock, User, ArrowRight, Github, ArrowLeft } from "lucide-react";
@@ -31,7 +32,7 @@ export default function AuthPage() {
       {/* Logo / Retour Accueil */}
       <Link href="/" className="mb-8 flex items-center gap-2 group">
         <div className="w-12 h-12 relative group-hover:rotate-12 transition-transform">
-          <img src="/digitalmentor.png" alt="Logo" className="w-full h-full object-contain" />
+          <Image src="/digitalmentor.png" alt="Logo" width={48} height={48} className="w-full h-full object-contain" />
         </div>
         <span className="text-2xl font-black uppercase tracking-tighter" style={{ textShadow: '2px 2px 0px #FFDE00' }}>
           DigitalMentor
@@ -143,7 +144,7 @@ export default function AuthPage() {
                   whileTap={{ scale: 0.95 }}
                   className="flex items-center justify-center gap-2 border-2 border-black p-3 rounded-xl font-bold hover:bg-gray-50 transition-colors shadow-[3px_3px_0px_0px_#000]"
                 >
-                  <img src="https://www.google.com/favicon.ico" className="w-5 h-5" alt="Google" />
+                  <Image src="https://www.google.com/favicon.ico" width={20} height={20} alt="Google" />
                   Google
                 </motion.button>
                 <motion.button 

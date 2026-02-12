@@ -2,6 +2,7 @@
 
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
+import Image from "next/image";
 import { ConsultingServices } from "@/components/entreprises/ConsultingServices";
 import { Collaboration } from "@/components/landing/Collaboration";
 import { motion } from "framer-motion";
@@ -36,7 +37,7 @@ export default function EntreprisesPage() {
 
               <p className="text-xl md:text-2xl text-gray-800 font-medium max-w-2xl mb-10 leading-relaxed">
                 Nous accompagnons les organisations dans leur mutation technologique.
-                De la formation des talents du futur à l'intégration de systèmes autonomes,
+                De la formation des talents du futur à l&apos;intégration de systèmes autonomes,
                 nous construisons ensemble votre avantage compétitif.
               </p>
 
@@ -114,7 +115,7 @@ export default function EntreprisesPage() {
                     <Users className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold uppercase mb-2">Culture de l'Innovation</h4>
+                    <h4 className="text-xl font-bold uppercase mb-2">Culture de l&apos;Innovation</h4>
                     <p className="text-lg font-medium opacity-90">Nous accompagnons vos équipes dans le changement pour instaurer une culture d&apos;innovation continue.</p>
                   </div>
                 </div>
@@ -132,18 +133,20 @@ export default function EntreprisesPage() {
 
             <div className="bg-white border-4 border-black p-10 rounded-3xl shadow-[10px_10px_0px_0px_#000000]">
               <blockquote className="text-3xl font-bold italic leading-tight mb-8">
-                "L'intelligence digitale n&apos;est plus une option, c&apos;est le moteur de la croissance moderne. Nous sommes là pour être votre copilote."
+                &quot;L&apos;intelligence digitale n&apos;est plus une option, c&apos;est le moteur de la croissance moderne. Nous sommes là pour être votre copilote.&quot;
               </blockquote>
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 bg-neo-yellow border-2 border-black rounded-full overflow-hidden">
-                  <img
+                  <Image
                     src="https://api.dicebear.com/7.x/avataaars/svg?seed=Eurin"
                     alt="Eurin D'ALMEIDA"
+                    width={64}
+                    height={64}
                     className="w-full h-full object-cover bg-white"
                   />
                 </div>
                 <div>
-                  <p className="font-bold text-xl uppercase">Eurin D'ALMEIDA</p>
+                  <p className="font-bold text-xl uppercase">Eurin D&apos;ALMEIDA</p>
                   <p className="font-medium text-gray-600">Consultant IT & Entrepreneur Numérique</p>
                 </div>
               </div>

@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { Quote } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 const testimonials = [
   { 
@@ -13,25 +13,25 @@ const testimonials = [
   { 
     name: "Sarah L.", 
     role: "Développeuse Full-Stack", 
-    quote: "Le niveau d&apos;expertise technique ici est impressionnant. J'ai enfin pu maîtriser l'intégration poussée de l&apos;IA dans mes applications scalables. On apprend à réfléchir comme des ingénieurs, pas juste à copier du code.", 
+    quote: "Le niveau d&apos;expertise technique ici est impressionnant. J&apos;ai enfin pu maîtriser l&apos;intégration poussée de l&apos;IA dans mes applications scalables. On apprend à réfléchir comme des ingénieurs, pas juste à copier du code.", 
     seed: "Aneka" 
   },
   { 
     name: "TechCorp Solutions", 
     role: "Entreprise", 
-    quote: "Le consulting en IA de DigitalMentor a permis d'automatiser 40% de nos processus internes. Un gain de productivité immédiat et mesurable pour nos équipes.", 
+    quote: "Le consulting en IA de DigitalMentor a permis d&apos;automatiser 40% de nos processus internes. Un gain de productivité immédiat et mesurable pour nos équipes.", 
     seed: "Taseen" 
   },
   { 
     name: "Marc-Antoine", 
     role: "Professionnel Marketing", 
-    quote: "Enfin une plateforme qui privilégie la pratique. Les stratégies de growth et d'automatisation sont directement applicables à mon business.", 
+    quote: "Enfin une plateforme qui privilégie la pratique. Les stratégies de growth et d&apos;automatisation sont directement applicables à mon business.", 
     seed: "Manoj" 
   },
   { 
     name: "Léa D.", 
     role: "UI Designer", 
-    quote: "L'approche créative et les outils d'IA suggérés m'ont permis de diviser mon temps de production par deux tout en restant hyper qualitative. Indispensable pour tout créatif moderne.", 
+    quote: "L&apos;approche créative et les outils d&apos;IA suggérés m&apos;ont permis de diviser mon temps de production par deux tout en restant hyper qualitative. Indispensable pour tout créatif moderne.", 
     seed: "Zhen" 
   },
   { 
@@ -59,10 +59,10 @@ export function Testimonials() {
             <div key={i} className="break-inside-avoid bg-white p-6 rounded-lg border-2 border-black flex flex-col justify-between cursor-default hover:bg-gray-50 transition-colors">
               <div>
                 <Quote className="w-8 h-8 fill-neo-yellow text-black mb-4" />
-                <p className="text-lg text-gray-800 font-medium mb-6 leading-relaxed">"{t.quote}"</p>
+                <p className="text-lg text-gray-800 font-medium mb-6 leading-relaxed">&quot;{t.quote}&quot;</p>
               </div>
               <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${t.seed}`} alt={t.name} className="w-10 h-10 bg-gray-300 rounded-full border-2 border-black" />
+                <Image src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${t.seed}`} alt={t.name} width={40} height={40} className="w-10 h-10 bg-gray-300 rounded-full border-2 border-black" />
                 <div>
                   <div className="font-bold text-sm">{t.name}</div>
                   <div className="text-xs text-gray-500 font-medium">{t.role}</div>

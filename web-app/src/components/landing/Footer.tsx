@@ -1,11 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Zap, Twitter, Github, Dribbble, Instagram, Youtube } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { Twitter, Github, Dribbble, Instagram, Youtube } from "lucide-react";
 
 export function Footer() {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
 
   const socialIcons = [Twitter, Github, Dribbble, Instagram, Youtube];
 
@@ -20,9 +26,11 @@ export function Footer() {
           <div className="max-w-sm">
             <div className="flex items-center gap-2 mb-6">
               <div className="w-10 h-10 relative">
-                <img 
+                <Image 
                   src="/digitalmentor.png" 
                   alt="DigitalMentor Logo" 
+                  width={40}
+                  height={40}
                   className="w-full h-full object-contain" 
                 />
               </div>
@@ -54,10 +62,10 @@ export function Footer() {
             <div className="min-w-max">
               <h4 className="font-bold text-lg mb-4 uppercase tracking-tighter">Quick Links</h4>
               <ul className="space-y-3 text-lg text-gray-600 font-medium">
-                <li><a href="/" className="hover:text-black hover:underline">Accueil</a></li>
-                <li><a href="/blog" className="hover:text-black hover:underline">Blog</a></li>
-                <li><a href="/entreprises" className="hover:text-black hover:underline">Entreprises & IA</a></li>
-                <li><a href="#" className="hover:text-black hover:underline">Formations</a></li>
+                <li><Link href="/" className="hover:text-black hover:underline">Accueil</Link></li>
+                <li><Link href="/blog" className="hover:text-black hover:underline">Blog</Link></li>
+                <li><Link href="/entreprises" className="hover:text-black hover:underline">Entreprises & IA</Link></li>
+                <li><Link href="#" className="hover:text-black hover:underline">Formations</Link></li>
               </ul>
             </div>
 

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
+import Image from "next/image";
 import { Collaboration } from "@/components/landing/Collaboration";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, ExternalLink, Brain, Palette, Code2, TrendingUp, ArrowRight, Database } from "lucide-react";
@@ -185,9 +186,11 @@ export default function MentoratPage() {
                             >
                                 <div className="flex gap-6 mb-6">
                                     <div className={`w-20 h-20 shrink-0 ${formation.color} border-2 border-black rounded-2xl flex items-center justify-center overflow-hidden`}>
-                                        <img
+                                        <Image
                                             src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${formation.seed}`}
                                             alt={formation.mentor}
+                                            width={80}
+                                            height={80}
                                             className="w-full h-full object-cover"
                                         />
                                     </div>
@@ -220,9 +223,9 @@ export default function MentoratPage() {
                                     <motion.button 
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
-                                        className="bg-[#2563eb] text-white border-2 border-black rounded-xl px-6 py-2.5 font-black text-sm uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
+                                        className="bg-[#2563eb] text-white border-2 border-black rounded-xl px-6 py-2.5 font-black text-sm uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"
                                     >
-                                        S'inscrire
+                                        S&apos;inscrire
                                     </motion.button>
                                 </div>
                             </motion.div>

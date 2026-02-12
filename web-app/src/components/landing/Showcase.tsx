@@ -40,7 +40,11 @@ const expertises = [
 
 export function Showcase() {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
 
   if (!mounted) return <section className="py-24 bg-[#FFFDF5] min-h-[600px]" />;
 

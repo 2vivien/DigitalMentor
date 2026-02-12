@@ -2,6 +2,7 @@
 
 import { ArrowRight, Calendar, User } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface BlogCardProps {
@@ -21,9 +22,11 @@ export function BlogCard({ title, excerpt, category, date, author, image, color 
       style={{ boxShadow: '6px 6px 0px 0px #000000' }}
     >
       <div className={cn("h-48 border-b-2 border-black relative overflow-hidden", color)}>
-        <img 
+        <Image 
           src={image} 
           alt={title} 
+          width={400}
+          height={200}
           className="w-full h-full object-cover mix-blend-multiply opacity-80 group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute top-4 left-4 bg-white border-2 border-black px-3 py-1 rounded-full text-xs font-bold uppercase">

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Star } from "lucide-react";
 
 const mentors = [
@@ -49,9 +50,11 @@ export function Mentors() {
                         >
                             <div className="relative mb-6 mx-auto w-32 h-32">
                                 <div className="absolute inset-0 bg-neo-yellow rounded-full border-2 border-black -rotate-6"></div>
-                                <img
+                                <Image
                                     src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${mentor.seed}`}
                                     alt={mentor.name}
+                                    width={128}
+                                    height={128}
                                     className="relative z-10 w-full h-full rounded-full border-2 border-black bg-white"
                                 />
                             </div>

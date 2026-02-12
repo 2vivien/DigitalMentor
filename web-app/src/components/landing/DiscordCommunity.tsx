@@ -72,19 +72,19 @@ export function DiscordCommunity() {
                     <div className="flex gap-3">
                       <div className="w-10 h-10 bg-neo-teal border-2 border-black rounded-full flex-shrink-0" />
                       <div className="bg-gray-100 p-3 rounded-xl border-2 border-black text-sm font-medium">
-                        "Est-ce que quelqu&apos;un a testé l'API de GPT-4o pour automatiser..."
+                        &quot;Est-ce que quelqu&apos;un a testé l&apos;API de GPT-4o pour automatiser...&quot;
                       </div>
                     </div>
                     <div className="flex gap-3 justify-end">
                       <div className="bg-neo-yellow p-3 rounded-xl border-2 border-black text-sm font-bold italic">
-                        "Oui ! Je t'envoie mon workflow tout de suite 🔥"
+                        &quot;Oui ! Je t&apos;envoie mon workflow tout de suite 🔥&quot;
                       </div>
                       <div className="w-10 h-10 bg-neo-pink border-2 border-black rounded-full flex-shrink-0" />
                     </div>
                     <div className="flex gap-3">
                       <div className="w-10 h-10 bg-neo-coral border-2 border-black rounded-full flex-shrink-0" />
                       <div className="bg-gray-100 p-3 rounded-xl border-2 border-black text-sm font-medium">
-                        "Merci ! C'est ce genre d&apos;entraide qui fait la différence ici."
+                        &quot;Merci ! C&apos;est ce genre d&apos;entraide qui fait la différence ici.&quot;
                       </div>
                     </div>
                   </div>

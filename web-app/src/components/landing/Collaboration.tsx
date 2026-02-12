@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Building2, Users, Zap } from "lucide-react";
+import Image from "next/image";
+import { Building2, Users } from "lucide-react";
 
 export function Collaboration() {
   return (
@@ -46,9 +47,11 @@ export function Collaboration() {
               viewport={{ once: true }}
               className="relative z-10"
             >
-              <img
+              <Image
                 src="/images/collaboration.png"
                 alt="Collaboration teams"
+                width={600}
+                height={400}
                 className="w-full h-auto drop-shadow-[30px_30px_0px_rgba(0,0,0,0.1)] scale-125"
               />
             </motion.div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import { UserSync } from "@/components/UserSync";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -25,6 +26,7 @@ export default function RootLayout({
           <link rel="icon" href="/digitalmentor.png" />
         </head>
         <body className={`${jakarta.variable} antialiased`}>
+          <UserSync />
           {children}
         </body>
       </html>

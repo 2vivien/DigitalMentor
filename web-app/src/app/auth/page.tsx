@@ -5,12 +5,21 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Zap, Mail, Lock, User, ArrowRight, Github, ArrowLeft, Loader2, Key } from "lucide-react";
+import { Zap, Mail, Lock, User, ArrowRight, Github, ArrowLeft, Loader2, Key, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useSignIn, useSignUp } from "@clerk/nextjs";
+import { useSignIn, useSignUp, useAuth } from "@clerk/nextjs";
 
 export default function AuthPage() {
+  const { userId } = useAuth();
   const [isLogin, setIsLogin] = useState(true);
+  const router = useRouter();
+
+  const { isLoaded: signInLoaded, signIn, setActive: setSignInActive } = useSignIn();
+  const { isLoaded: signUpLoaded, signUp, setActive: setSignUpActive } = useSignUp();
+
+  const isLoaded = signInLoaded && signUpLoaded;
+
+  // States
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
@@ -19,12 +28,13 @@ export default function AuthPage() {
   const [forgotPassword, setForgotPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  
-  const router = useRouter();
-  const { isLoaded: signInLoaded, signIn, setActive: setSignInActive } = useSignIn();
-  const { isLoaded: signUpLoaded, signUp, setActive: setSignUpActive } = useSignUp();
 
-  const isLoaded = signInLoaded && signUpLoaded;
+  // Redirect if already signed in
+  useEffect(() => {
+    if (userId) {
+      router.push("/");
+    }
+  }, [userId, router]);
 
   // Reset error when switching modes
   useEffect(() => {
@@ -48,7 +58,7 @@ export default function AuthPage() {
       setError("");
       await (isLogin ? signIn : signUp)?.authenticateWithRedirect({
         strategy,
-        redirectUrl: "/auth/sso-callback",
+        redirectUrl: "/sso-callback",
         redirectUrlComplete: "/",
       });
     } catch (err: any) {
@@ -138,7 +148,7 @@ export default function AuthPage() {
     try {
       setLoading(true);
       setError("");
-      
+
       if (!verifying) {
         await signIn.create({
           strategy: "reset_password_email_code",
@@ -167,7 +177,7 @@ export default function AuthPage() {
   return (
     <main className="min-h-screen bg-[#FFFDF5] selection:bg-neo-yellow selection:text-black flex flex-col items-center justify-center p-4 relative overflow-hidden">
       {/* Bouton Retour */}
-      <motion.button 
+      <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => router.back()}
@@ -192,9 +202,12 @@ export default function AuthPage() {
       </Link>
 
       <div className="w-full max-w-md relative">
+        {/* Clerk Captcha */}
+        <div id="clerk-captcha" />
+
         {/* Toggle Switch */}
         <div className="flex border-2 border-black rounded-xl overflow-hidden mb-6 bg-white shadow-[4px_4px_0px_0px_#000]">
-          <motion.button 
+          <motion.button
             whileTap={{ scale: 0.98 }}
             onClick={() => { setIsLogin(true); setForgotPassword(false); }}
             className={cn(
@@ -204,7 +217,7 @@ export default function AuthPage() {
           >
             Connexion
           </motion.button>
-          <motion.button 
+          <motion.button
             whileTap={{ scale: 0.98 }}
             onClick={() => { setIsLogin(false); setForgotPassword(false); }}
             className={cn(
@@ -227,31 +240,32 @@ export default function AuthPage() {
               transition={{ duration: 0.2 }}
             >
               <h2 className="text-3xl font-black uppercase mb-6 tracking-tight">
-                {verifying ? "Vérifiez votre email" : 
-                 forgotPassword ? "Réinitialisation" :
-                 isLogin ? "Ravi de vous revoir !" : "Rejoignez l'aventure !"}
+                {verifying ? "Vérifiez votre email" :
+                  forgotPassword ? "Réinitialisation" :
+                    isLogin ? "Ravi de vous revoir !" : "Rejoignez l'aventure !"}
               </h2>
 
               {error && (
-                <div className="mb-4 p-3 bg-neo-coral/20 border-2 border-black rounded-xl text-sm font-bold text-red-600">
+                <div className="mb-4 p-3 bg-neo-coral/20 border-2 border-black rounded-xl text-sm font-bold text-red-600 flex items-center gap-2">
+                  <AlertCircle className="w-5 h-5 flex-shrink-0" />
                   {error}
                 </div>
               )}
 
-              <form 
-                className="space-y-4" 
-                onSubmit={verifying ? (forgotPassword ? onResetPassword : onVerify) : 
-                         forgotPassword ? onResetPassword :
-                         isLogin ? onLogin : onSignUp}
+              <form
+                className="space-y-4"
+                onSubmit={verifying ? (forgotPassword ? onResetPassword : onVerify) :
+                  forgotPassword ? onResetPassword :
+                    isLogin ? onLogin : onSignUp}
               >
                 {!isLogin && !verifying && !forgotPassword && (
                   <div className="space-y-2">
-                    <label className="text-sm font-black uppercase">Nom complet</label>
+                    <label className="text-sm font-black uppercase">Prénom et Nom</label>
                     <div className="relative">
                       <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input 
+                      <input
                         required
-                        type="text" 
+                        type="text"
                         placeholder="John Doe"
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
@@ -266,29 +280,12 @@ export default function AuthPage() {
                     <label className="text-sm font-black uppercase">Email</label>
                     <div className="relative">
                       <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input 
+                      <input
                         required
-                        type="email" 
+                        type="email"
                         placeholder="hello@exemple.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full border-2 border-black rounded-xl pl-12 pr-4 py-3 font-medium focus:outline-none focus:ring-2 focus:ring-neo-yellow bg-gray-50"
-                      />
-                    </div>
-                  </div>
-                )}
-
-                {verifying && (
-                  <div className="space-y-2">
-                    <label className="text-sm font-black uppercase">Code de vérification</label>
-                    <div className="relative">
-                      <Key className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input 
-                        required
-                        type="text" 
-                        placeholder="123456"
-                        value={code}
-                        onChange={(e) => setCode(e.target.value)}
                         className="w-full border-2 border-black rounded-xl pl-12 pr-4 py-3 font-medium focus:outline-none focus:ring-2 focus:ring-neo-yellow bg-gray-50"
                       />
                     </div>
@@ -302,7 +299,7 @@ export default function AuthPage() {
                         {forgotPassword ? "Nouveau mot de passe" : "Mot de passe"}
                       </label>
                       {isLogin && !forgotPassword && (
-                        <button 
+                        <button
                           type="button"
                           onClick={() => setForgotPassword(true)}
                           className="text-xs font-bold underline hover:text-neo-coral"
@@ -313,9 +310,9 @@ export default function AuthPage() {
                     </div>
                     <div className="relative">
                       <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input 
+                      <input
                         required
-                        type="password" 
+                        type="password"
                         placeholder="••••••••"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -325,7 +322,24 @@ export default function AuthPage() {
                   </div>
                 )}
 
-                <motion.button 
+                {verifying && (
+                  <div className="space-y-2">
+                    <label className="text-sm font-black uppercase">Code de vérification</label>
+                    <div className="relative">
+                      <Key className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <input
+                        required
+                        type="text"
+                        placeholder="123456"
+                        value={code}
+                        onChange={(e) => setCode(e.target.value)}
+                        className="w-full border-2 border-black rounded-xl pl-12 pr-4 py-3 font-medium focus:outline-none focus:ring-2 focus:ring-neo-yellow bg-gray-50"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                <motion.button
                   disabled={loading}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -335,16 +349,16 @@ export default function AuthPage() {
                     <Loader2 className="w-6 h-6 animate-spin" />
                   ) : (
                     <>
-                      {verifying ? "Vérifier" : 
-                       forgotPassword ? (verifying ? "Réinitialiser" : "Envoyer le code") :
-                       isLogin ? "Se connecter" : "Créer mon compte"}
+                      {verifying ? "Vérifier" :
+                        forgotPassword ? (verifying ? "Réinitialiser" : "Envoyer le code") :
+                          isLogin ? "Se connecter" : "Créer mon compte"}
                       <ArrowRight className="w-6 h-6" />
                     </>
                   )}
                 </motion.button>
-                
+
                 {forgotPassword && (
-                  <button 
+                  <button
                     type="button"
                     onClick={() => { setForgotPassword(false); setVerifying(false); }}
                     className="w-full text-center text-sm font-bold underline mt-2"
@@ -363,7 +377,7 @@ export default function AuthPage() {
                   </div>
 
                   <div className="grid grid-cols-2 gap-4 mt-6">
-                    <motion.button 
+                    <motion.button
                       onClick={() => handleOAuth("oauth_google")}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -372,7 +386,7 @@ export default function AuthPage() {
                       <Image src="https://www.google.com/favicon.ico" width={20} height={20} unoptimized alt="Google" />
                       Google
                     </motion.button>
-                    <motion.button 
+                    <motion.button
                       onClick={() => handleOAuth("oauth_github")}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}

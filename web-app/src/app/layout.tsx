@@ -9,8 +9,8 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "DigitalMentor - Neo Brutalism",
-  description: "Neo brutalist style React UI blocks and templates",
+  title: "DigitalMentor - Trouvez votre mentor idéal",
+  description: "Plateforme de mentorat pour développeurs et entrepreneurs",
 };
 
 export default function RootLayout({
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en" suppressHydrationWarning>
+      <html lang="fr">
         <head>
           <link rel="icon" href="/digitalmentor.png" />
         </head>

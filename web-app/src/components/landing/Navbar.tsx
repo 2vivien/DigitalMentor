@@ -3,9 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useAuth } from "@clerk/nextjs";
+import { UserMenu } from "./UserMenu";
 
 export function Navbar() {
+  const { isSignedIn } = useAuth();
+
   return (
+
     <nav className="w-full border-b-2 border-black bg-[#FFFDF5] sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
@@ -44,17 +49,26 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <Link href="/auth" className="hidden sm:block text-lg font-medium border-2 border-black px-4 py-1.5 rounded-lg neo-shadow hover:neo-shadow-hover transition-all bg-white">
-            Sign in
-          </Link>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="text-lg font-medium bg-neo-yellow border-2 border-black px-5 py-1.5 rounded-lg neo-shadow hover:neo-shadow-hover transition-all"
-          >
-            Access Now
-          </motion.button>
+          {isSignedIn ? (
+            <UserMenu />
+          ) : (
+            <>
+              <Link href="/auth" className="hidden sm:block text-lg font-medium border-2 border-black px-4 py-1.5 rounded-lg neo-shadow hover:neo-shadow-hover transition-all bg-white">
+                Sign in
+              </Link>
+              <Link href="/auth">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-lg font-medium bg-neo-yellow border-2 border-black px-5 py-1.5 rounded-lg neo-shadow hover:neo-shadow-hover transition-all"
+                >
+                  Access Now
+                </motion.button>
+              </Link>
+            </>
+          )}
         </div>
+
       </div>
     </nav>
   );

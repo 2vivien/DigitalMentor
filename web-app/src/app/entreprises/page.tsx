@@ -4,12 +4,18 @@ import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import Image from "next/image";
 import { ConsultingServices } from "@/components/entreprises/ConsultingServices";
+import { CompanyContactForm } from "@/components/entreprises/CompanyContactForm";
 import { Collaboration } from "@/components/landing/Collaboration";
 import { motion } from "framer-motion";
 import { Zap, Target, TrendingUp, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function EntreprisesPage() {
+  const scrollToContact = () => {
+    const element = document.getElementById("contact-form");
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <main className="min-h-screen selection:bg-neo-yellow selection:text-black">
       <Navbar />
@@ -38,13 +44,14 @@ export default function EntreprisesPage() {
               <p className="text-xl md:text-2xl text-gray-800 font-medium max-w-2xl mb-10 leading-relaxed">
                 Nous accompagnons les organisations dans leur mutation technologique.
                 De la formation des talents du futur à l&apos;intégration de systèmes autonomes,
-                nous construisons ensemble votre avantage compétitif.
+                we build together your competitive advantage.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={scrollToContact}
                   className="text-xl font-bold bg-neo-yellow border-2 border-black px-8 py-4 rounded-xl neo-shadow hover:neo-shadow-hover transition-all uppercase"
                 >
                   Parler à un consultant
@@ -171,6 +178,7 @@ export default function EntreprisesPage() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={scrollToContact}
               className="bg-black text-white text-2xl font-bold px-12 py-5 rounded-2xl hover:scale-105 transition-transform shadow-[6px_6px_0px_0px_#FFDE00]"
             >
               Contacter le Pôle Entreprise
@@ -178,6 +186,8 @@ export default function EntreprisesPage() {
           </div>
         </div>
       </section>
+
+      <CompanyContactForm />
 
       <Footer />
     </main>

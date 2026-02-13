@@ -7,7 +7,7 @@ import { Footer } from "@/components/landing/Footer";
 import Image from "next/image";
 import { Collaboration } from "@/components/landing/Collaboration";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, ExternalLink, Brain, Palette, Code2, TrendingUp, ArrowRight, Database } from "lucide-react";
+import { Search, ExternalLink, Brain, Palette, Code2, TrendingUp, ArrowRight, Database, X, Zap, ShieldCheck, Star, CheckCircle2 } from "lucide-react";
 
 const categories = [
     { id: "all", name: "Toutes les Formations", icon: Database, count: 97 },
@@ -28,7 +28,9 @@ const formations = [
         rating: "5.0",
         students: "1,200",
         seed: "George",
-        color: "bg-pink-100"
+        color: "bg-pink-100",
+        longDescription: "Ce programme complet vous plonge au cœur de l'intelligence artificielle générative. De la compréhension des LLMs à la création d'agents autonomes, vous maîtriserez les outils qui redéfinissent le travail moderne.",
+        features: ["Création d'agents IA", "Automatisation No-code", "Prompt Engineering avancé", "Intégration API OpenAI"]
     },
     {
         id: 2,
@@ -40,7 +42,9 @@ const formations = [
         rating: "4.9",
         students: "850",
         seed: "Avery",
-        color: "bg-orange-100"
+        color: "bg-orange-100",
+        longDescription: "Maîtrisez le framework React le plus populaire au monde. Apprenez à construire des applications ultra-rapides, SEO-friendly et scalables en utilisant les dernières fonctionnalités de Next.js.",
+        features: ["App Router & Server Components", "Authentication avec Clerk", "Database Prisma/PostgreSQL", "Déploiement Vercel"]
     },
     {
         id: 3,
@@ -52,7 +56,9 @@ const formations = [
         rating: "4.8",
         students: "920",
         seed: "Zoey",
-        color: "bg-green-100"
+        color: "bg-green-100",
+        longDescription: "Le design ne se limite pas à l'esthétique. Apprenez à concevoir des systèmes de design robustes qui facilitent la collaboration et garantissent une cohérence parfaite sur tous vos produits digitaux.",
+        features: ["Audit UI/UX", "Composants Variants Figma", "Documentation Design System", "Accessibilité Web (WCAG)"]
     },
     {
         id: 4,
@@ -64,12 +70,36 @@ const formations = [
         rating: "5.0",
         students: "1,500",
         seed: "Leo",
-        color: "bg-purple-100"
+        color: "bg-purple-100",
+        longDescription: "Découvrez les secrets de la croissance exponentielle. De l'optimisation SEO aux campagnes publicitaires ultra-ciblées, apprenez à attirer et convertir des clients de manière prédictible.",
+        features: ["Stratégie Content Marketing", "Optimisation SEO Technique", "Facebook & Google Ads", "Analyse de données Growth"]
     }
 ];
 
+interface Formation {
+    id: number;
+    categoryId: string;
+    title: string;
+    mentor: string;
+    description: string;
+    tags: string[];
+    rating: string;
+    students: string;
+    seed: string;
+    color: string;
+    longDescription: string;
+    features: string[];
+}
+
 export default function MentoratPage() {
     const [selectedCat, setSelectedCat] = useState("all");
+    const [selectedFormation, setSelectedFormation] = useState<Formation | null>(null);
+    const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+
+    const openDetails = (formation: Formation) => {
+        setSelectedFormation(formation);
+        setIsDetailsOpen(true);
+    };
 
     const filteredFormations = selectedCat === "all"
         ? formations
@@ -215,13 +245,13 @@ export default function MentoratPage() {
                                 </p>
 
                                 <div className="mt-auto flex items-center justify-between pt-6 border-t-2 border-dashed border-gray-200">
-                                    <motion.button 
+                                    <motion.button
                                         whileHover={{ x: 5 }}
                                         className="flex items-center gap-2 font-black text-sm uppercase hover:underline"
                                     >
                                         Détails <ExternalLink className="w-4 h-4" />
                                     </motion.button>
-                                    <motion.button 
+                                    <motion.button
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                         className="bg-[#2563eb] text-white border-2 border-black rounded-xl px-6 py-2.5 font-black text-sm uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"
@@ -236,6 +266,96 @@ export default function MentoratPage() {
             </div>
 
             <Collaboration />
+
+            {/* Modal Détails Formation */}
+            <AnimatePresence>
+                {isDetailsOpen && selectedFormation && (
+                    <div className="fixed inset-0 z-[110] flex items-center justify-center p-4">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsDetailsOpen(false)}
+                            className="absolute inset-0 bg-black/80 backdrop-blur-md"
+                        />
+
+                        <motion.div
+                            initial={{ scale: 0.9, y: 20, opacity: 0 }}
+                            animate={{ scale: 1, y: 0, opacity: 1 }}
+                            exit={{ scale: 0.9, y: 20, opacity: 0 }}
+                            className="bg-[#FFFDF5] border-4 border-black w-full max-w-3xl rounded-[40px] shadow-[20px_20px_0px_0px_#000] overflow-hidden relative z-10"
+                        >
+                            <button
+                                onClick={() => setIsDetailsOpen(false)}
+                                className="absolute top-6 right-6 p-2 border-2 border-black rounded-full hover:bg-neo-coral transition-colors z-20 bg-white shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+                            >
+                                <X className="w-6 h-6 text-black" />
+                            </button>
+
+                            <div className="flex flex-col md:flex-row h-full">
+                                <div className={cn("w-full md:w-2/5 p-8 flex flex-col items-center justify-center border-b-4 md:border-b-0 md:border-r-4 border-black", selectedFormation.color)}>
+                                    <div className="w-48 h-48 rounded-3xl border-4 border-black bg-white overflow-hidden mb-6 shadow-[8px_8px_0px_0px_#000]">
+                                        <Image
+                                            src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${selectedFormation.seed}`}
+                                            alt={selectedFormation.mentor}
+                                            width={192}
+                                            height={192}
+                                            unoptimized
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                    <h3 className="text-2xl font-black uppercase text-center leading-tight mb-2">{selectedFormation.mentor}</h3>
+                                    <div className="flex items-center gap-1 bg-white border-2 border-black px-3 py-1 rounded-full mb-4 shadow-[2px_2px_0px_0px_#000]">
+                                        <Star className="w-4 h-4 fill-neo-yellow text-black" />
+                                        <span className="font-black text-sm">{selectedFormation.rating}</span>
+                                    </div>
+                                    <p className="text-xs font-bold uppercase text-black/60">Mentor Expert</p>
+                                </div>
+
+                                <div className="w-full md:w-3/5 p-8 md:p-12 space-y-8 overflow-y-auto max-h-[70vh] no-scrollbar">
+                                    <div>
+                                        <h4 className="text-sm font-black uppercase text-gray-400 mb-2">Formation</h4>
+                                        <p className="text-3xl font-black uppercase leading-tight text-black">{selectedFormation.title}</p>
+                                    </div>
+
+                                    <div>
+                                        <h4 className="text-sm font-black uppercase text-gray-400 mb-2">Programme</h4>
+                                        <p className="text-lg font-bold text-gray-800 leading-relaxed italic">&quot;{selectedFormation.longDescription}&quot;</p>
+                                    </div>
+
+                                    <div className="bg-white border-2 border-black p-6 rounded-2xl shadow-[6px_6px_0px_0px_#000]">
+                                        <h4 className="flex items-center gap-2 text-sm font-black uppercase mb-4">
+                                            <ShieldCheck className="w-5 h-5 text-[#2563eb]" />
+                                            Compétences Clés
+                                        </h4>
+                                        <ul className="grid grid-cols-1 gap-2">
+                                            {selectedFormation.features.map((feature, i) => (
+                                                <li key={i} className="flex items-center gap-2 font-bold text-sm text-gray-700">
+                                                    <div className="w-1.5 h-1.5 bg-[#2563eb] rounded-full"></div>
+                                                    {feature}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                                        <motion.button
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            onClick={() => setIsDetailsOpen(false)}
+                                            className="flex-1 bg-[#2563eb] text-white py-4 rounded-2xl font-black uppercase text-lg shadow-[6px_6px_0px_0px_#000] flex items-center justify-center gap-2 hover:translate-y-[2px] hover:shadow-none transition-all"
+                                        >
+                                            S&apos;inscrire
+                                            <Zap className="w-5 h-5 fill-neo-yellow text-neo-yellow" />
+                                        </motion.button>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
+
             <Footer />
         </main>
     );

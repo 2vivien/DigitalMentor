@@ -3,8 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useAuth } from "@clerk/nextjs";
-import { UserMenu } from "./UserMenu";
+import { SignedIn, SignedOut, UserButton, useAuth } from "@clerk/nextjs";
 
 export function Navbar() {
   const { isSignedIn } = useAuth();
@@ -49,24 +48,27 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          {isSignedIn ? (
-            <UserMenu />
-          ) : (
-            <>
-              <Link href="/auth" className="hidden sm:block text-lg font-medium border-2 border-black px-4 py-1.5 rounded-lg neo-shadow hover:neo-shadow-hover transition-all bg-white">
-                Sign in
-              </Link>
-              <Link href="/auth">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="text-lg font-medium bg-neo-yellow border-2 border-black px-5 py-1.5 rounded-lg neo-shadow hover:neo-shadow-hover transition-all"
-                >
-                  Access Now
-                </motion.button>
-              </Link>
-            </>
-          )}
+          <SignedOut>
+            <Link href="/auth" className="hidden sm:block text-lg font-medium border-2 border-black px-4 py-1.5 rounded-lg neo-shadow hover:neo-shadow-hover transition-all bg-white">
+              Se connecter
+            </Link>
+            <Link href="/auth" className="text-lg font-medium bg-neo-yellow border-2 border-black px-5 py-1.5 rounded-lg neo-shadow hover:neo-shadow-hover transition-all">
+              Commencer
+            </Link>
+          </SignedOut>
+
+          <SignedIn>
+            <div className="border-2 border-black rounded-full overflow-hidden neo-shadow hover:neo-shadow-hover transition-all">
+              <UserButton
+                afterSignOutUrl="/"
+                appearance={{
+                  elements: {
+                    avatarBox: "w-10 h-10"
+                  }
+                }}
+              />
+            </div>
+          </SignedIn>
         </div>
 
       </div>

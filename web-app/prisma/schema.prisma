@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  MENTOR
+  ADMIN
+}
+
+model User {
+  id        String   @id // Clerk ID
+  email     String   @unique
+  firstName String?
+  lastName  String?
+  imageUrl  String?
+  bio       String?
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  mentorProfile MentorProfile?
+}
+
+model MentorProfile {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expertise    String[]
+  hourlyRate   Float    @default(0)
+  availability Json?    // Stock simple availability data
+  rating       Float    @default(5.0)
+  reviewCount  Int      @default(0)
+}
